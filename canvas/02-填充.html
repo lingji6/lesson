@@ -1,0 +1,47 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-11-20 13:25:37 
+ * @Last Modified by:   1521620993@qq.com 
+ * @Last Modified time: 2020-11-20 13:25:37 
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-填充</title>
+</head>
+<body>
+    <script>
+        /* 
+            1、ctx.closePath()：闭合路径
+            2、通过js方式修改画布宽高(不要用css方式修改画布宽高)
+            3、ctx.strokeStyle：设置描边颜色
+            4、ctx.fillStyle：设置填充色
+            5、ctx.fill：填充
+            6、ctx.lineWidth：描边的宽度
+        */
+        window.onload = function(){
+            const canvas = document.querySelector('canvas')
+            /* canvas.width = 1600
+            canvas.height = 1000 */
+            const ctx = canvas.getContext('2d')
+            ctx.moveTo(100, 0)
+            ctx.lineTo(0, 200)
+            ctx.lineTo(200, 200)
+            ctx.lineWidth = 16
+            ctx.closePath()
+            ctx.strokeStyle = 'rgba(0, 0, 255, .9)' // rgb rgba #00f red
+            ctx.stroke()
+            ctx.fillStyle = 'rgba(255, 0, 0, .3)'
+            ctx.fill()
+        }
+    </script>
+    <canvas width="600" height="600" id="box">
+
+    </canvas>
+</body>
+</html>

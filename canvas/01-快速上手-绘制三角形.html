@@ -1,0 +1,53 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-11-20 13:23:30 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-11-20 13:23:58
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-快速上手-绘制三角形</title>
+</head>
+<body>
+    <script>
+        /* 
+            canvas的应用领域：
+                1、可视化数据
+                2、动态酷炫的广告效果图
+                3、游戏
+            使用canvas
+                1、canvas标签自身无法绘制任何内容，但是对于这个canvas标签，js提供了很多api可以进行绘制
+                2、不要用css设置canvas标签的宽高
+                3、canvas的上下文：绘制环境，绘制操作的api的入口或集合
+                4、坐标从左往右为x坐标轴，从上往下为y坐标轴，都是依次增加
+                5、const ctx = canvas.getContext('2d')
+                6、ctx.moveTo(x, y)
+                7、ctx.lineTo(x, y)
+                8、ctx.stroke()
+        */
+        window.onload = function(){
+            const canvas = document.querySelector('canvas') // 获取画布的dom元素
+            const ctx = canvas.getContext('2d') // 生成画笔
+            ctx.moveTo(100, 0) // 将画笔放到坐标位置
+            ctx.lineTo(0, 200) // 从一点到另一点画一条直线
+            ctx.lineTo(200, 200)
+            ctx.lineTo(100, 0)
+            ctx.stroke() // 描边
+
+            /* const div = document.querySelector('div')
+            console.log(div)
+            div.getContext() // 对于普通标签是没有canvas相关api方法的 */
+        }
+    </script>
+    <canvas width="600" height="600">
+
+    </canvas>
+    <div></div>
+</body>
+</html>
