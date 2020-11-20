@@ -1,0 +1,67 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-11-20 13:18:31 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-11-20 13:18:52
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-组合选择器</title>
+</head>
+<body>
+  <style>
+    /* 
+    组合选择器
+      并且选择器
+      子选择器
+      后代选择器
+      相邻兄弟选择器
+      兄弟选择器
+      分组选择器(语法糖)
+     */
+    div.red{
+      /* 并且选择器 */
+      background-color: red;
+    }
+    div > ul{
+      /* 子选择器 */
+      padding-left: 0;
+    }
+    div li{
+      /* 后代选择器 */
+      padding-bottom: 10px;
+    }
+    .two + li{
+      /* 相邻兄弟选择器 */
+      font-size: 1.5em;
+    }
+    .six ~ li{
+      /* 兄弟选择器 */
+      font-size: 0.6em;
+    }
+    div.red, li.two, li.six{
+      /* 三个并且选择器组成的分组选择器 */
+      color: blue;
+    }
+  </style>
+  <div class="red">红色区域</div>
+  <div>
+    <ul>
+      <li>编号1</li>
+      <li class="two">编号2</li>
+      <li>编号3</li>
+      <li>编号4</li>
+      <li>编号5</li>
+      <li class="six">编号6</li>
+      <li>编号7</li>
+      <li>编号8</li>
+      <li>编号9</li>
+    </ul>
+  </div>
+</body>
+</html>
