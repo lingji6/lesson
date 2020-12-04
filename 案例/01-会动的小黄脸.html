@@ -1,0 +1,117 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-05 01:29:07 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-05 02:12:17
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-会动的小黄脸</title>
+</head>
+<body>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    /* 设置小黄脸上下左右居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #5d3800;
+  }
+  .face{
+    /* 生成小黄脸，并设置本身为容器，为眼睛和嘴巴居中做准备 */
+    width: 300px;
+    height: 300px;
+    background: #ffcd00;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .face::before{
+    /* 生成嘴巴 */
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 70px;
+    background: #b57700;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    top: 180px;
+    transition: all 0.5s;
+  }
+  .face:hover::before{
+    /* 设置鼠标经过嘴巴效果 */
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 20px;
+    top: 210px;
+  }
+  .eyes{
+    /* 设置两只眼睛位置，并且设置为容器，为两只眼睛布局做准备 */
+    display: flex;
+    position: absolute;
+    top: 65px;
+  }
+  .eyes > .eye{
+    /* 生成白色眼球 */
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 15px;
+    position: relative;
+  }
+  .eyes > .eye::before{
+    /* 生成和设置黑色眼珠位置 */
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 25px;
+    transform: translate(-50%, -50%);
+  }
+  </style>
+  <div class="face"><!-- 整个脸的div -->
+    <div class="eyes"><!-- 两只眼睛的div -->
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+  </div>
+  <script>
+    window.onload = function(){
+      /* 实现黑眼珠跟随鼠标经过的效果 */
+      let face = document.getElementsByClassName('face')[0]
+      face.addEventListener('mousemove', eyeBall)
+      function eyeBall(event){
+        /* 遍历两个黑眼珠 */
+        document.querySelectorAll('.eye').forEach(function(eye){
+          let x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
+          // 黑眼珠左侧 + 黑眼珠宽度一半
+          let y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
+          // 黑眼珠上侧 + 黑眼珠高度一半
+          /* x和y即为黑色眼珠的圆心坐标位置 */
+          let radian = Math.atan2(event.clientX - x, event.clientY - y);
+          // Math.atan2函数接受鼠标位置和黑眼珠圆心坐标的差，返回结果为二者形成的弧度
+          let angle = radian * 180 /Math.PI;
+          // 将上面的弧度转行为角度
+          eye.style.transform = `rotate(${angle}deg)`;
+          // 设置鼠标经过，黑眼珠跟随移动的角度
+        })
+      }
+    }
+  </script>
+</body>
+</html>
