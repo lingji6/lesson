@@ -1,0 +1,49 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-31 00:34:50 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-31 00:38:39
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08-定位实现居中</title>
+</head>
+<body>
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: wheat;
+      position: relative;
+    }
+    .item1{
+      position: absolute;
+    }
+    .item2{
+      position: fixed;
+    }
+    .box div{
+      width: 100px;
+      height: 100px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: red;
+      color: #fff;
+      line-height: 100px;
+      text-align: center;
+    }
+  </style>
+  <div class="box">
+    <div class="item1">item1</div>
+    <div class="item2">item2</div>
+  </div>
+</body>
+</html>

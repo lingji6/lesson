@@ -1,0 +1,60 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-30 22:41:30 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-30 22:53:13
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04-绝对定位</title>
+</head>
+<body>
+  <!-- <style>
+    .box{
+      position: absolute;
+      background-color: red;
+    }
+  </style>
+  <div class="box">
+    Lorem ipsum dolor sit amet consectetur.
+  </div> -->
+
+  <style>
+    .box1{
+      width: 300px;
+      height: 300px;
+      padding: 30px;
+      background-color: wheat;
+      background-clip: content-box;
+      border: 10px solid blue;
+      position: relative;
+    }
+    .box2{
+      width: 200px;
+      height: 200px;
+      padding: 30px;
+      background-color: brown;
+      background-clip: content-box;
+      border: 10px solid red;
+    }
+    .box3{
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <div class="box1">
+    <div class="box2">
+      <div class="box3"></div>
+    </div>
+  </div>
+</body>
+</html>

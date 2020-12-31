@@ -1,0 +1,53 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-31 00:41:08 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-31 00:46:40
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09-定位元素的重叠</title>
+</head>
+<body>
+  <style>
+    .box1{
+      border: 1px solid blue;
+      height: 100px;
+      background-color: red;
+      /* position: relative; */
+      /* z-index: 100; */
+      float: left;
+    }
+    .box2{
+      background-color: wheat;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 0;
+      z-index: -1;
+    }
+    .box3{
+      background-color: purple;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 50px;
+      /* z-index: 1; */
+    }
+  </style>
+  <div class="box1">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, ex.
+  </div>
+  <div class="box2">
+    box2
+  </div>
+  <div class="box3">
+    box3
+  </div>
+</body>
+</html>

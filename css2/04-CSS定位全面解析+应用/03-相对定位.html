@@ -1,0 +1,46 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-30 22:20:05 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-30 22:32:31
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-相对定位</title>
+</head>
+<body>
+  <style>
+    .box{
+      width: 300px;
+      border: 2px solid brown;
+      margin: 0 auto;
+    }
+    .box div{
+      height: 50px;
+      background-color: red;
+      margin: 5px;
+    }
+    .item1{
+      position: relative;
+      left: 30px;
+      right: 50px;
+      /* top: 30px; */
+      bottom: 60px;
+      border: 2px solid blue;
+    }
+    div .item2{
+      margin-left: 30px;
+    }
+  </style>
+  <div class="box">
+    <div class="item1"></div>
+    <div class="item2"></div>
+    <div class="item3"></div>
+  </div>
+</body>
+</html>

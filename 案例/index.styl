@@ -1,0 +1,46 @@
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-28 17:43:03 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-28 18:43:09
+ */
+body
+  background-color #9c27b0
+  display flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+  .loader
+    width 300px
+    height 300px
+    // background-color magenta
+    position relative
+    transform rotateX(60deg)
+    transform-style preserve-3d
+    perspective: 500px
+    perspective-origin: -10px 0px
+    &:hover
+      span
+        transform translateZ(100px)
+    &:active
+      span
+        transform translateZ(-100px)
+    @keyframes animate
+      0%, 100%
+        transform translateZ(-100px)
+      50%
+        transform translateZ(100px)
+    span
+      position absolute
+      border: 5px solid #fff
+      border-radius 50%
+      transition: 3s transform ease-in-out
+      animation animate 3s ease-in-out infinite
+      for row in 1..15
+        &:nth-child({row})
+          top (row - 1) * 10px
+          bottom (row - 1) * 10px
+          left (row - 1) * 10px
+          right (row - 1) * 10px
+          transition-delay: 1.5s - (row / 10)
+          animation-delay: 1.5s - (row / 10)

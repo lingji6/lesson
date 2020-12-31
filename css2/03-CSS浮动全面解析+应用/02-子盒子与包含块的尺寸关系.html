@@ -1,0 +1,40 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-28 12:48:22 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-28 13:49:25
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-子盒子与包含块的尺寸关系</title>
+</head>
+<body>
+  <style>
+    .parent{
+      width: 300px;
+      height: 200px;
+      background-color: wheat;
+      padding: 10px;
+      border: 10px dashed blue;
+      background-clip: content-box;
+    }
+    .child{
+      height: 100px;
+      background-color: red;
+      padding: 10px;
+      border: 10px dashed purple;
+      margin: 10px;
+      background-clip: content-box;
+      box-sizing: border-box;
+    }
+  </style>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+</html>

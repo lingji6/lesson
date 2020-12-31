@@ -1,0 +1,42 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-30 21:25:06 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-30 21:29:21
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11-高度坍塌解决方案</title>
+</head>
+<body>
+  <style>
+    .box{
+      border: 3px solid blue
+    }
+    .item{
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      float: left;
+    }
+    .clear::after{
+      content: '';
+      clear: both;
+      display: block;
+    }
+  </style>
+  <div class="box clear">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+  </div>
+</body>
+</html>

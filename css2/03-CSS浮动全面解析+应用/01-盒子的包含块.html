@@ -1,0 +1,37 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2020-12-28 12:09:07 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2020-12-28 12:47:35
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-盒子的包含块</title>
+</head>
+<body>
+  <style>
+    .box1{
+      background-color: red;
+      border: 10px dashed blue;
+      padding: 10px;
+      background-clip: content-box;
+    }
+    .box2{
+      margin: 30px;
+      background-color: magenta;
+      border: 10px dashed purple;
+      padding: 10px;
+    }
+  </style>
+  <div class="box1">
+    <div class="box2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias atque, laboriosam amet voluptas dicta praesentium similique magni quasi natus rem dolorum consequatur corrupti modi hic alias? Quos rerum corrupti molestiae.
+    </div>
+  </div>
+</body>
+</html>
