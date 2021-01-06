@@ -1,0 +1,129 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-04 03:26:43 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-06 10:44:41
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-迷幻般的渐变投影</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- <style>
+
+body
+  margin 0
+  padding 0
+  background-color #000000
+  .shadow
+    position relative
+    width 400px
+    height 250px
+    background linear-gradient(to top, #000, #262626)
+    margin 200px auto;
+    &::before
+    &::after
+      content ''
+      position absolute
+      width calc(100% + 4px)
+      height calc(100% + 4px)
+      background linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000)
+      background-size 400%
+      z-index -1
+      top -2px
+      left -2px
+      animation animate 20s linear infinite
+      @keyframes animate
+        0%
+          background-position 0 0
+        50%
+          background-position 300% 0
+        100%
+          background-position 0 0
+    &::after
+      filter blur(20px)
+  </style> -->
+  <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+body .shadow {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  background: linear-gradient(to top, #000, #262626);
+  margin: 200px auto;
+}
+body .shadow::before,
+body .shadow::after {
+  content: '';
+  position: absolute;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  z-index: -1;
+  top: -2px;
+  left: -2px;
+  animation: animate 20s linear infinite;
+}
+@-moz-keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@-webkit-keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+body .shadow::after {
+  filter: blur(20px);
+}
+  </style>
+  <div class="shadow"></div>
+</body>
+</html>

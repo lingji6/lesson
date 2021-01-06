@@ -1,6 +1,285 @@
 /*
  * @Author: wzh 
- * @Date: 2020-12-28 17:43:03 
+ * @Date: 2021-01-06 11:01:43 
  * @Last Modified by: 1521620993@qq.com
- * @Last Modified time: 2021-01-03 18:01:13
+ * @Last Modified time: 2021-01-06 12:14:52
  */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #48cae4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .froggy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  -webkit-animation: float 3s forwards infinite alternate;
+          animation: float 3s forwards infinite alternate;
+}
+
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translateX(-7.5px);
+            transform: translateX(-7.5px);
+  }
+  100% {
+    -webkit-transform: translateX(7.5px);
+            transform: translateX(7.5px);
+  }
+}
+
+@keyframes float {
+  0% {
+    -webkit-transform: translateX(-7.5px);
+            transform: translateX(-7.5px);
+  }
+  100% {
+    -webkit-transform: translateX(7.5px);
+            transform: translateX(7.5px);
+  }
+}
+
+body .froggy .head {
+  background-color: #9dcc1c;
+  width: 14rem;
+  height: 8.5rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+body .froggy .head::before, body .froggy .head::after {
+  content: '';
+  background-color: #9dcc1c;
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+body .froggy .head::before {
+  top: -1rem;
+  left: 1rem;
+}
+
+body .froggy .head::after {
+  top: -1rem;
+  left: 7.75rem;
+}
+
+body .froggy .head .eyes {
+  position: absolute;
+  z-index: 2;
+}
+
+body .froggy .head .eyes .eye1, body .froggy .head .eyes .eye2 {
+  border-radius: 50%;
+  background-color: #333;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: 2rem;
+}
+
+body .froggy .head .eyes .eye2 {
+  left: 9.3rem;
+}
+
+body .froggy .head .eyes .white_eye {
+  background-color: #fff;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 1rem;
+  top: 0.2rem;
+}
+
+body .froggy .head .blush .blush1, body .froggy .head .blush .blush2 {
+  background-color: #ffcc99;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 3rem;
+  left: 0.8rem;
+}
+
+body .froggy .head .blush .blush2 {
+  top: 3rem;
+  left: 10.6rem;
+}
+
+body .froggy .head .smile {
+  background-color: #9dcc1c;
+  width: 6.5rem;
+  height: 2.5rem;
+  border: 5px solid #000;
+  -webkit-clip-path: inset(40% 0% 0% 0%);
+          clip-path: inset(40% 0% 0% 0%);
+  position: absolute;
+  top: 3rem;
+  left: 3.4rem;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+body .froggy .frog_body {
+  width: 11rem;
+  height: 8rem;
+  background-color: #9dcc1c;
+  border-radius: 50%;
+  position: relative;
+  top: -2.5rem;
+}
+
+body .froggy .frog_body::before, body .froggy .frog_body::after {
+  content: '';
+  background-color: #9dcc1c;
+  width: 6rem;
+  height: 3rem;
+  position: absolute;
+  border-radius: 50%;
+  -webkit-clip-path: inset(40% 0% 0% 0%);
+          clip-path: inset(40% 0% 0% 0%);
+}
+
+body .froggy .frog_body::before {
+  -webkit-transform: rotate(170deg);
+          transform: rotate(170deg);
+  top: 6.2rem;
+  left: -0.6rem;
+}
+
+body .froggy .frog_body::after {
+  -webkit-transform: rotate(-170deg);
+          transform: rotate(-170deg);
+  top: 6.2rem;
+  left: 5.6rem;
+}
+
+body .froggy .frog_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .froggy .frog_body .white_tummy {
+  background: #fff;
+  width: 7.5em;
+  height: 4.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 2rem;
+}
+
+body .froggy .frog_body .hand1, body .froggy .frog_body .hand2 {
+  background-color: #9dcc1c;
+  width: 1.5rem;
+  height: 6.5em;
+  position: absolute;
+  z-index: 2;
+  -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+          clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+  top: 2rem;
+  left: 2.7rem;
+}
+
+body .froggy .frog_body .hand2 {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+  left: 6.9rem;
+}
+
+body .froggy .frog_body .finger1, body .froggy .frog_body .finger2 {
+  background-color: #9dcc1c;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 7.2rem;
+  -webkit-clip-path: polygon(68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+          clip-path: polygon(68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+body .froggy .frog_body .finger1 {
+  -webkit-transform: rotate(-55deg);
+          transform: rotate(-55deg);
+  left: 3.3rem;
+}
+
+body .froggy .frog_body .finger2 {
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+  left: 5.3rem;
+}
+
+body .froggy .frog_body .leg1, body .froggy .frog_body .leg2 {
+  background-color: #9dcc1c;
+  width: 5rem;
+  height: 3.5rem;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+  left: -1.3rem;
+  top: 3.0rem;
+}
+
+body .froggy .frog_body .leg2 {
+  -webkit-transform: rotate(-25deg);
+          transform: rotate(-25deg);
+  left: 7.3rem;
+}
+
+body .lilypad {
+  border-radius: 50%;
+  width: 21rem;
+  height: 7rem;
+  background-color: #379936;
+  position: absolute;
+  top: 10rem;
+  z-index: -2;
+}
+
+body .lilypad:before {
+  content: '';
+  background-color: #48cae4;
+  width: 6rem;
+  height: 3rem;
+  position: absolute;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  top: 0.5rem;
+  left: 18rem;
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+/*# sourceMappingURL=index.css.map */

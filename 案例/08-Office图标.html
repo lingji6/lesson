@@ -1,0 +1,419 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-06 11:00:41 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-06 11:36:31
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08-Office图标</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- <style>
+    $word-1: #42a5ee;
+    $word-2: #2b7dd3;
+    $word-3: #175bbe;
+    $word-4: #103f90;
+    
+    $excel-1: #34c380;
+    $excel-2: #20a366;
+    $excel-3: #0e7c41;
+    $excel-4: #185c37;
+    
+    $ppt-1: #fe906a;
+    $ppt-2: #ee6b47;
+    $ppt-3: #d35232;
+    
+    $body: #00abec;
+    $body-2: lighten($body, 20%);
+    @mixin mainArea() {
+      width: 150px;
+      height: 180px;
+      background: grey;
+      border-radius: 10px;
+      margin-right: 60px;
+      position: relative;
+      transition: box-shadow 0.5s;
+    }
+    @mixin textShadow($startColor, $endColor) {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: linear-gradient($startColor, $endColor);
+      top: 25%;
+      right: 65%;
+      border-radius: 10px;
+      box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+      z-index: 2;
+    }
+    @mixin text($content) {
+      position: absolute;
+      content: $content;
+      top: 25%;
+      left: 34%;
+      font-size: 48px;
+      color: #fff;
+      font-family: "Arial", sans-serif;
+    }
+    @mixin cells(
+      $hex,
+      $top-left,
+      $top-right,
+      $position,
+      $bottom-right,
+      $bottom-left
+    ) {
+      background: $hex;
+      border-radius: $top-left $top-right $bottom-right $bottom-left;
+      top: $position;
+    }
+    @mixin mainAreaHover($hoverColor) {
+      box-shadow: 0px 5px 15px darken($hoverColor, 20%);
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient($body, $body-2);
+      .doc {
+        &:hover {
+          @include mainAreaHover($word-1);
+        }
+        @include mainArea();
+        .word {
+          @include textShadow(#1d60c0, #1653b6);
+          &::before {
+            @include text('W');
+            // height: 26%;
+          }
+        }
+        .layer {
+          position: absolute;
+          width: 150px;
+          height: 45px;
+          &--1 {
+            @include cells($word-1, 10px, 10px, 0px, 0px, 0px);
+          }
+          &--2 {
+            @include cells($word-2, 0px, 0px, 45px, 0px, 0px);
+          }
+          &--3 {
+            @include cells($word-3, 0px, 0px, 90px, 0px, 0px);
+          }
+          &--4 {
+            @include cells($word-4, 0px, 0px, 135px, 10px, 10px);
+          }
+        }
+      }
+      .xls {
+        &:hover {
+          @include mainAreaHover($excel-1);
+        }
+        @extend .doc;
+        .excel {
+          @include textShadow(#17874e, #0e6b35);
+          &::before {
+            @include text('X');
+          }
+        }
+        .column {
+          width: 80px;
+          height: 100px;
+          background-color: #185c3780;
+          position: absolute;
+          z-index: 1;
+        }
+        .layerx { 
+          &--1 {
+            @include cells($excel-1, 10px, 10px, 0px, 0px, 0px);
+          }
+          &--2 {
+            @include cells($excel-2, 0px, 0px, 45px, 0px, 0px);
+          }
+          &--3 {
+            @include cells($excel-3, 0px, 0px, 90px, 0px, 0px);
+          }
+          &--4 {
+            @include cells($excel-4, 0px, 0px, 135px, 10px, 10px);
+          }
+        }
+      }
+      .ppt {
+        &:hover {
+          @include mainAreaHover($ppt-1);
+        }
+        @include mainArea();
+        background: linear-gradient(to bottom, rgba(255, 144, 106, 1) 40%, rgba(211, 82, 50, 1) 100%);
+        width: 180px;
+        border-radius: 100%;
+        margin-right: 0;
+        .powerpoint {
+          @include textShadow(#c54424, #bc3819);
+          &::before {
+            @include text('P');
+          }
+        }
+        .ppt-left {
+          z-index: 1;
+          position: absolute;
+          width: 98px;
+          height: 100px;
+          background-color: $ppt-2;
+          top: 0;
+          left: -4px;
+          border-radius: 100% 0px 0px 0px;
+        }
+        .ppt-right {
+          @extend .ppt-left;
+          left: 94px;
+          width: 85px;
+          background-color: $ppt-1;
+          border-radius: 0px 100% 0px 0px;
+        }
+      }
+    }
+  </style> -->
+  <style>
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00abec), to(#53d0ff));
+  background: linear-gradient(#00abec, #53d0ff);
+}
+
+body .doc, body .xls {
+  width: 150px;
+  height: 180px;
+  background: grey;
+  border-radius: 10px;
+  margin-right: 60px;
+  position: relative;
+  -webkit-transition: -webkit-box-shadow 0.5s;
+  transition: -webkit-box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
+}
+
+body .doc:hover, body .xls:hover {
+  -webkit-box-shadow: 0px 5px 15px #1172b9;
+          box-shadow: 0px 5px 15px #1172b9;
+}
+
+body .doc .word, body .xls .word {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1d60c0), to(#1653b6));
+  background: linear-gradient(#1d60c0, #1653b6);
+  top: 25%;
+  right: 65%;
+  border-radius: 10px;
+  -webkit-box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+          box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+  z-index: 2;
+}
+
+body .doc .word::before, body .xls .word::before {
+  position: absolute;
+  content: "W";
+  top: 25%;
+  left: 34%;
+  font-size: 48px;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+body .doc .layer, body .xls .layer {
+  position: absolute;
+  width: 150px;
+  height: 45px;
+}
+
+body .doc .layer--1, body .xls .layer--1 {
+  background: #42a5ee;
+  border-radius: 10px 10px 0px 0px;
+  top: 0px;
+}
+
+body .doc .layer--2, body .xls .layer--2 {
+  background: #2b7dd3;
+  border-radius: 0px 0px 0px 0px;
+  top: 45px;
+}
+
+body .doc .layer--3, body .xls .layer--3 {
+  background: #175bbe;
+  border-radius: 0px 0px 0px 0px;
+  top: 90px;
+}
+
+body .doc .layer--4, body .xls .layer--4 {
+  background: #103f90;
+  border-radius: 0px 0px 10px 10px;
+  top: 135px;
+}
+
+body .xls:hover {
+  -webkit-box-shadow: 0px 5px 15px #1f724b;
+          box-shadow: 0px 5px 15px #1f724b;
+}
+
+body .xls .excel {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#17874e), to(#0e6b35));
+  background: linear-gradient(#17874e, #0e6b35);
+  top: 25%;
+  right: 65%;
+  border-radius: 10px;
+  -webkit-box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+          box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+  z-index: 2;
+}
+
+body .xls .excel::before {
+  position: absolute;
+  content: "X";
+  top: 25%;
+  left: 34%;
+  font-size: 48px;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+body .xls .column {
+  width: 80px;
+  height: 100px;
+  background-color: #185c3780;
+  position: absolute;
+  z-index: 1;
+}
+
+body .xls .layerx--1 {
+  background: #34c380;
+  border-radius: 10px 10px 0px 0px;
+  top: 0px;
+}
+
+body .xls .layerx--2 {
+  background: #20a366;
+  border-radius: 0px 0px 0px 0px;
+  top: 45px;
+}
+
+body .xls .layerx--3 {
+  background: #0e7c41;
+  border-radius: 0px 0px 0px 0px;
+  top: 90px;
+}
+
+body .xls .layerx--4 {
+  background: #185c37;
+  border-radius: 0px 0px 10px 10px;
+  top: 135px;
+}
+
+body .ppt {
+  width: 150px;
+  height: 180px;
+  background: grey;
+  border-radius: 10px;
+  margin-right: 60px;
+  position: relative;
+  -webkit-transition: -webkit-box-shadow 0.5s;
+  transition: -webkit-box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, #ff906a), to(#d35232));
+  background: linear-gradient(to bottom, #ff906a 40%, #d35232 100%);
+  width: 180px;
+  border-radius: 100%;
+  margin-right: 0;
+}
+
+body .ppt:hover {
+  -webkit-box-shadow: 0px 5px 15px #fd4505;
+          box-shadow: 0px 5px 15px #fd4505;
+}
+
+body .ppt .powerpoint {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#c54424), to(#bc3819));
+  background: linear-gradient(#c54424, #bc3819);
+  top: 25%;
+  right: 65%;
+  border-radius: 10px;
+  -webkit-box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+          box-shadow: 6px 0px 0px #00000020, 10px -4px 0px #00000010, 10px 4px 0px #00000010;
+  z-index: 2;
+}
+
+body .ppt .powerpoint::before {
+  position: absolute;
+  content: "P";
+  top: 25%;
+  left: 34%;
+  font-size: 48px;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+body .ppt .ppt-left, body .ppt .ppt-right {
+  z-index: 1;
+  position: absolute;
+  width: 98px;
+  height: 100px;
+  background-color: #ee6b47;
+  top: 0;
+  left: -4px;
+  border-radius: 100% 0px 0px 0px;
+}
+
+body .ppt .ppt-right {
+  left: 94px;
+  width: 85px;
+  background-color: #fe906a;
+  border-radius: 0px 100% 0px 0px;
+}
+  </style>
+  <div class="doc">
+    <div class="word"></div>
+    <div class="layer layer--1"></div>
+    <div class="layer layer--2"></div>
+    <div class="layer layer--3"></div>
+    <div class="layer layer--4"></div>
+  </div>
+  
+  <div class="xls">
+    <div class="excel"></div>
+    <div class="column"></div>
+    <div class="layer layerx--1"></div>
+    <div class="layer layerx--2"></div>
+    <div class="layer layerx--3"></div>
+    <div class="layer layerx--4"></div>
+  </div>
+  
+  <div class="ppt">
+    <div class="powerpoint"></div>
+    <div class="ppt-left"></div>
+    <div class="ppt-right"></div>
+  </div>
+</body>
+</html>
