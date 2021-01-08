@@ -1,285 +1,89 @@
 /*
  * @Author: wzh 
- * @Date: 2021-01-06 11:01:43 
+ * @Date: 2020-12-28 17:43:03 
  * @Last Modified by: 1521620993@qq.com
- * @Last Modified time: 2021-01-06 12:14:52
+ * @Last Modified time: 2021-01-09 01:13:01
  */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #48cae4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-body .froggy {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  -webkit-animation: float 3s forwards infinite alternate;
-          animation: float 3s forwards infinite alternate;
-}
-
-@-webkit-keyframes float {
-  0% {
-    -webkit-transform: translateX(-7.5px);
-            transform: translateX(-7.5px);
-  }
-  100% {
-    -webkit-transform: translateX(7.5px);
-            transform: translateX(7.5px);
-  }
-}
-
-@keyframes float {
-  0% {
-    -webkit-transform: translateX(-7.5px);
-            transform: translateX(-7.5px);
-  }
-  100% {
-    -webkit-transform: translateX(7.5px);
-            transform: translateX(7.5px);
-  }
-}
-
-body .froggy .head {
-  background-color: #9dcc1c;
-  width: 14rem;
-  height: 8.5rem;
-  border-radius: 50%;
-  position: relative;
-}
-
-body .froggy .head::before, body .froggy .head::after {
-  content: '';
-  background-color: #9dcc1c;
+.levels {
   position: absolute;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: -100px;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+.levels .level {
+  position: relative;
+  width: 280px;
+  height: 140px;
+  border-radius: 12px;
+  color: #ffc0cb;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  transform: rotateX(45deg) rotateY(-15deg) rotate(45deg);
+}
+.levels .level.one {
+  margin-top: -70;
+  background-color: #8063e1;
+  background-image: linear-gradient(135deg, #bd7be8, #8063e1);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #8063e1;
+  z-index: 4;
+  opacity: 0.9;
+}
+.levels .level.two {
+  margin-top: -70;
+  background-color: #3f58e3;
+  background-image: linear-gradient(135deg, #7f94fc, #3f58e3);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #3f58e3;
+  z-index: 3;
+  opacity: 0.9;
+}
+.levels .level.three {
+  margin-top: -70;
+  background-color: #2c6fd1;
+  background-image: linear-gradient(135deg, #21bbfe, #2c6fd1);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #2c6fd1;
+  z-index: 2;
+  opacity: 0.9;
+}
+.levels .level.four {
+  margin-top: -70;
+  background-color: #352f64;
+  background-image: linear-gradient(135deg, #415197, #352f64);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #352f64;
   z-index: 1;
+  opacity: 0.9;
 }
-
-body .froggy .head::before {
-  top: -1rem;
-  left: 1rem;
-}
-
-body .froggy .head::after {
-  top: -1rem;
-  left: 7.75rem;
-}
-
-body .froggy .head .eyes {
+.levels .level .title {
   position: absolute;
-  z-index: 2;
+  top: 28px;
+  left: 15px;
+  font-size: 26px;
+  font-weight: bold;
 }
-
-body .froggy .head .eyes .eye1, body .froggy .head .eyes .eye2 {
-  border-radius: 50%;
-  background-color: #333;
-  width: 2rem;
-  height: 2rem;
+.levels .level .content {
   position: absolute;
-  left: 2rem;
+  font-weight: 700;
+  bottom: 15px;
+  left: 15px;
+  font-size: 16px;
 }
-
-body .froggy .head .eyes .eye2 {
-  left: 9.3rem;
+.levels .level:hover {
+  transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
+  opacity: 0.6;
 }
-
-body .froggy .head .eyes .white_eye {
-  background-color: #fff;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  position: absolute;
-  left: 1rem;
-  top: 0.2rem;
+.levels .level:hover:after {
+  transform: translateX(100%);
+  transition: all 1.2s ease-in-out;
 }
-
-body .froggy .head .blush .blush1, body .froggy .head .blush .blush2 {
-  background-color: #ffcc99;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 2;
-  top: 3rem;
-  left: 0.8rem;
-}
-
-body .froggy .head .blush .blush2 {
-  top: 3rem;
-  left: 10.6rem;
-}
-
-body .froggy .head .smile {
-  background-color: #9dcc1c;
-  width: 6.5rem;
-  height: 2.5rem;
-  border: 5px solid #000;
-  -webkit-clip-path: inset(40% 0% 0% 0%);
-          clip-path: inset(40% 0% 0% 0%);
-  position: absolute;
-  top: 3rem;
-  left: 3.4rem;
-  z-index: 2;
-  border-radius: 50%;
-}
-
-body .froggy .frog_body {
-  width: 11rem;
-  height: 8rem;
-  background-color: #9dcc1c;
-  border-radius: 50%;
-  position: relative;
-  top: -2.5rem;
-}
-
-body .froggy .frog_body::before, body .froggy .frog_body::after {
+.levels .level::after {
   content: '';
-  background-color: #9dcc1c;
-  width: 6rem;
-  height: 3rem;
   position: absolute;
-  border-radius: 50%;
-  -webkit-clip-path: inset(40% 0% 0% 0%);
-          clip-path: inset(40% 0% 0% 0%);
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-image: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.1), rgba(255,255,255,0) 80%);
 }
-
-body .froggy .frog_body::before {
-  -webkit-transform: rotate(170deg);
-          transform: rotate(170deg);
-  top: 6.2rem;
-  left: -0.6rem;
-}
-
-body .froggy .frog_body::after {
-  -webkit-transform: rotate(-170deg);
-          transform: rotate(-170deg);
-  top: 6.2rem;
-  left: 5.6rem;
-}
-
-body .froggy .frog_body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-body .froggy .frog_body .white_tummy {
-  background: #fff;
-  width: 7.5em;
-  height: 4.5rem;
-  border-radius: 50%;
-  position: absolute;
-  top: 2rem;
-}
-
-body .froggy .frog_body .hand1, body .froggy .frog_body .hand2 {
-  background-color: #9dcc1c;
-  width: 1.5rem;
-  height: 6.5em;
-  position: absolute;
-  z-index: 2;
-  -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
-          clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
-  -webkit-transform: rotate(-20deg);
-          transform: rotate(-20deg);
-  top: 2rem;
-  left: 2.7rem;
-}
-
-body .froggy .frog_body .hand2 {
-  -webkit-transform: rotate(20deg);
-          transform: rotate(20deg);
-  left: 6.9rem;
-}
-
-body .froggy .frog_body .finger1, body .froggy .frog_body .finger2 {
-  background-color: #9dcc1c;
-  width: 2.5rem;
-  height: 2.5rem;
-  position: absolute;
-  top: 7.2rem;
-  -webkit-clip-path: polygon(68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-          clip-path: polygon(68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}
-
-body .froggy .frog_body .finger1 {
-  -webkit-transform: rotate(-55deg);
-          transform: rotate(-55deg);
-  left: 3.3rem;
-}
-
-body .froggy .frog_body .finger2 {
-  -webkit-transform: rotate(-15deg);
-          transform: rotate(-15deg);
-  left: 5.3rem;
-}
-
-body .froggy .frog_body .leg1, body .froggy .frog_body .leg2 {
-  background-color: #9dcc1c;
-  width: 5rem;
-  height: 3.5rem;
-  position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  -webkit-transform: rotate(25deg);
-          transform: rotate(25deg);
-  left: -1.3rem;
-  top: 3.0rem;
-}
-
-body .froggy .frog_body .leg2 {
-  -webkit-transform: rotate(-25deg);
-          transform: rotate(-25deg);
-  left: 7.3rem;
-}
-
-body .lilypad {
-  border-radius: 50%;
-  width: 21rem;
-  height: 7rem;
-  background-color: #379936;
-  position: absolute;
-  top: 10rem;
-  z-index: -2;
-}
-
-body .lilypad:before {
-  content: '';
-  background-color: #48cae4;
-  width: 6rem;
-  height: 3rem;
-  position: absolute;
-  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  top: 0.5rem;
-  left: 18rem;
-  -webkit-transform: rotate(10deg);
-          transform: rotate(10deg);
-}
-/*# sourceMappingURL=index.css.map */
