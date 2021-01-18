@@ -1,0 +1,67 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-17 12:00:18 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-17 17:39:12
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09-3D变换-缩放</title>
+  <style>
+    body {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    .box {
+      width: 350px;
+      background-color: wheat;
+      padding: 5px;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transform: rotateY(60deg) scaleZ(1);
+      transition: 1s;
+      /* perspective-origin: left top; */
+      perspective-origin: left bottom;
+      perspective-origin: 0% 100%;
+      perspective-origin: 0px 370px;
+    }
+    .box:hover {
+      transform: rotateY(60deg) scaleZ(2);
+    }
+    .item {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+    }
+    .item1 {
+      transform: scaleX(2);
+    }
+    .item2 {
+      transform: scaleY(0.8);
+    }
+    .item3 {
+      transform: translateZ(-60px);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+  </div>
+</body>
+</html>

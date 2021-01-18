@@ -1,0 +1,56 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-17 09:13:09 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-17 10:06:25
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07-3D变换-位移</title>
+  <style>
+    body {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    .box {
+      width: 350px;
+      background-color: wheat;
+      padding: 5px;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transform: rotateX(0deg);
+      opacity: 0.5;
+    }
+    .item {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      transition: 1s transform;
+    }
+    .item2 {
+      /* transform: translate3d(10px, 10px, 10px); */
+      transform: translateZ(-10px);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+  </div>
+</body>
+</html>

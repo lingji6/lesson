@@ -1,0 +1,82 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-17 17:59:52 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-18 14:14:07
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-过渡</title>
+  <style>
+    .box {
+      width: 350px;
+      background-color: wheat;
+      padding: 5px;
+    }
+    .item {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      margin-bottom: 10px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      transition: 1s;
+      /* transition-property: transform, width; */
+      transition-duration: 3s;
+      /* transition-delay: 3s; */
+      /* transition: transform 2s ease 1s; */
+    }
+    /* .item1:active {
+      width: 100px;
+      text-align: left;
+      opacity: 0.3;
+      transform: translate(300px);
+    }
+    .item2:active {
+      transform: translate(300px);
+      width: 100px;
+      font-size: 36px;
+    } */
+    .box:active .item1{
+      transform: translate(300px);
+      transition-timing-function: ease;
+    }
+    .box:active .item2{
+      transform: translate(300px);
+      transition-timing-function: linear;
+    }
+    .box:active .item3{
+      transform: translate(300px);
+      transition-timing-function: ease-in;
+    }
+    .box:active .item4{
+      transform: translate(300px);
+      transition-timing-function: ease-out;
+    }
+    .box:active .item5{
+      transform: translate(300px);
+      transition-timing-function: ease-in-out;
+    }
+    .box:active .item6 {
+      transform: translate(300px);
+      transition-timing-function: cubic-bezier(.02,.94,.98,.41);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-18 14:38:47 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-18 21:26:07
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11-动画</title>
+  <style>
+    .box {
+      width: 350px;
+      background-color: wheat;
+      padding: 5px;
+      overflow: hidden;
+    }
+    .item {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      margin-bottom: 10px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      animation-name: animation3;
+      animation-duration: 2s;
+      /* animation-delay: 2s; */
+      float: left;
+      margin: 50px;
+      animation-iteration-count: infinite;
+    }
+    /* @keyframes animation1 {
+      0% {
+        transform: translate(0px);
+      }
+      50% {
+        transform: translate(100px);
+      }
+      100% {
+        transform: translate(100px, 100px);
+      }
+    }
+    .item1 {
+      animation-name: animation1;
+      animation-duration: 1s;
+      animation-delay: 3s;
+      animation-iteration-count: 3;
+      animation-timing-function: linear;
+    } */
+    /* @keyframes animation2 {
+      0% {
+        background-color: yellow;
+      }
+      100% {
+        background-color: blue;
+      }
+    }
+    .item1 {
+      animation-fill-mode: none;
+    }
+    .item2 {
+      animation-fill-mode: forwards;
+    }
+    .item3 {
+      animation-fill-mode: backwards;
+    }
+    .item4 {
+      animation-fill-mode: both;
+    } */
+    @keyframes animation3 {
+      to {
+        transform: scale(2);
+      }
+    }
+    .item1 {
+      animation-direction: normal;
+    }
+    .item2 {
+      animation-direction: reverse;
+    }
+    .item3 {
+      animation-direction: alternate;
+    }
+    .item4 {
+      animation-direction: alternate-reverse;
+    }
+    .item5:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-01-16 15:15:14 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-01-16 21:51:28
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-变换的特点</title>
+  <style>
+    .box {
+      width: 350px;
+      background-color: wheat;
+      padding: 5px;
+    }
+    .item {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      transition: 1s transform;
+    }
+    /* .item1 {
+      transform: translate(-60px, 60px);
+      position: absolute;
+    } */
+    .item2 {
+      display: inline;
+      transform: translate(60px);
+      display: block;
+      display: inline-block;
+    }
+    .item3 {
+      display: flex;
+      display: grid;
+    }
+    .item3 span {
+      background-color: blue;
+      transform: translate(60px);
+    }
+    .item4 {
+      transform: translate(60px) rotate(30deg) skew(30deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">
+      <span>3</span>
+    </div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+  </div>
+</body>
+</html>
