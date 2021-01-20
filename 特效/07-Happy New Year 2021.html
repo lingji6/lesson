@@ -3,7 +3,7 @@
  * @Author: wzh 
  * @Date: 2021-01-06 10:45:10 
  * @Last Modified by: 1521620993@qq.com
- * @Last Modified time: 2021-01-06 11:54:43
+ * @Last Modified time: 2021-01-20 11:19:24
  */
 </script>
 <!DOCTYPE html>
@@ -12,208 +12,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>07-Happy New Year 2021</title>
-  <!-- <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      overflow: hidden;
-    }
-
-    .section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #111, #222, #111);
-      &::before {
-        content: '';
-        position: absolute;
-        width: 30vw;
-        height: 30vw;
-        border: 5vw solid #ff1062;
-        border-radius: 50%;
-        box-shadow: 0 0 0 1vw #222,
-                    0 0 0 1.3vw #fff;
-      }
-      .section__title {
-        position: absolute;
-        transform: skewY(-7deg);
-        z-index: 10;
-        color: #fff;
-        text-align: center;
-        font-size: 9vw;
-        line-height: 2em;
-        text-shadow: 1px 1px 0 #ccc,
-          2px 2px 0 #ccc,
-          3px 3px 0 #ccc,
-          4px 4px 0 #ccc,
-          5px 5px 0 #ccc,
-          10px 10px 0 rgba(0, 0, 0, 0.2);
-        animation: floating 5s ease-in-out infinite;
-        span {
-          text-shadow: 1px 1px 0 #ccc,
-            2px 2px 0 #ccc,
-            3px 3px 0 #ccc,
-            4px 4px 0 #ccc,
-            5px 5px 0 #ccc,
-            6px 6px 0 #ccc,
-            7px 7px 0 #ccc,
-            8px 8px 0 #ccc,
-            9px 9px 0 #ccc,
-            20px 20px 0 rgba(0, 0, 0, 0.2);
-          font-weight: 700;
-          font-size: 3em;
-        }
-      }
-      i {
-        position: absolute;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 0 0 10px #fff,
-          0 0 20px #fff,
-          0 0 40px #fff,
-          0 0 80px #fff;
-        animation: animate linear infinite;
-      }
-    }
-
-    @keyframes floating {
-      0%, 100% {
-        transform: skewY(-7deg) translate(0, -20px);
-      }
-      50% {
-        transform: skewY(-7deg) translate(0, 20px);
-      }
-    }
-
-    @keyframes animate {
-      0% {
-        opactiy: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
-  </style> -->
-  <!-- <script>
-  const stars = () => {
-    const count = 200;
-    const section = document.querySelector('.section');
-    let i = 0;
-    while (i < count) {
-      const star = document.createElement('i');
-      const x = Math.floor(Math.random() * window.innerWidth);
-      const y = Math.floor(Math.random() * window.innerHeight);
-      
-      const size = Math.random() * 4;
-      star.style.left = x + 'px';
-      star.style.top = y + 'px';
-      star.style.width = 1 + size + 'px';
-      star.style.height = 1 + size + 'px';
-      
-      const duration = Math.random() * 2;
-      
-      star.style.animationDuration = 2 + duration + 's';
-      star.style.animationDelay = 2 + duration + 's';
-      
-      section.appendChild(star);
-      i++;
-    }
-  }
-
-  stars();
-  </script> -->
 </head>
 <body>
-  <!-- <style>
-
-*
-  box-sizing: border-box
-body
-  overflow hidden
-  margin 0
-  padding 0
-  .section
-    min-height 100vh
-    display flex
-    justify-content center
-    align-items center
-    background linear-gradient(135deg, #111, #222, #111)
-    position relative
-    &::before
-      content ''
-      position absolute
-      width 30vw
-      height 30vh
-      border 5vw solid #ff1062
-      border-radius 50%
-      box-shadow 0 0 0 1vw #222,
-                0 0 0 1.3vw #fff;
-    .sectionTitle
-      position absolute
-      color #fff
-      font-size 9vw
-      text-align center
-      line-height 2em
-      text-shadow 1px 1px 0 #ccc, 
-                  2px 2px 0 #ccc, 
-                  3px 3px 0 #ccc, 
-                  4px 4px 0 #ccc, 
-                  5px 5px 0 #ccc, 
-                  10px 10px 0 rgba(0, 0, 0, 0.2)
-      animation floating 5s ease-in-out infinite
-      @keyframes floating
-        0%, 100%
-          transform skewY(-7deg) translate(0, -20px)
-        50%
-          transform skewY(0deg) translate(0, 20px)
-      span
-        text-shadow 1px 1px 0 #ccc,
-                    2px 2px 0 #ccc,
-                    3px 3px 0 #ccc,
-                    4px 4px 0 #ccc,
-                    5px 5px 0 #ccc,
-                    6px 6px 0 #ccc,
-                    7px 7px 0 #ccc,
-                    8px 8px 0 #ccc,
-                    9px 9px 0 #ccc,
-                    20px 20px 0 rgba(0, 0, 0, 0.2)
-        font-weight 700
-        font-size 3em
-    i
-      position absolute
-      background-color #fff
-      top 30px
-      left 30px
-      width 4px
-      height 4px
-      z-index 10
-      border-radius 50%
-      box-shadow 0 0 10px #fff,
-                  0 0 20px #fff,
-                  0 0 40px #fff,
-                  0 0 80px #fff
-      animation animate 1s linear infinite
-      @keyframes animate
-        0%
-          opacity 0
-        10%
-          opacity 1
-        90%
-          opacity 1
-        100%
-          opacity 0
-  </style> -->
   <style>
 * {
   box-sizing: border-box;
@@ -235,8 +35,7 @@ body .section::before {
   content: '';
   position: absolute;
   width: 30vw;
-  height: 30vw;
-  border: 5vw solid #ff1062;
+  height: 30vh;
   border: 5vw solid #ff1062;
   border-radius: 50%;
   box-shadow: 0 0 0 1vw #222, 0 0 0 1.3vw #fff;
@@ -356,7 +155,6 @@ body .section i {
   }
 }
   </style>
-  
   <section class="section">
     <h2 class="sectionTitle">
       Happy New Year<br>
@@ -390,5 +188,83 @@ body .section i {
     }
     stars()
   </script>
+  <!-- 
+*
+  box-sizing: border-box
+body
+  overflow hidden
+  margin 0
+  padding 0
+  .section
+    min-height 100vh
+    display flex
+    justify-content center
+    align-items center
+    background linear-gradient(135deg, #111, #222, #111)
+    position relative
+    &::before
+      content ''
+      position absolute
+      width 30vw
+      height 30vh
+      border 5vw solid #ff1062
+      border-radius 50%
+      box-shadow 0 0 0 1vw #222,
+                0 0 0 1.3vw #fff;
+    .sectionTitle
+      position absolute
+      color #fff
+      font-size 9vw
+      text-align center
+      line-height 2em
+      text-shadow 1px 1px 0 #ccc, 
+                  2px 2px 0 #ccc, 
+                  3px 3px 0 #ccc, 
+                  4px 4px 0 #ccc, 
+                  5px 5px 0 #ccc, 
+                  10px 10px 0 rgba(0, 0, 0, 0.2)
+      animation floating 5s ease-in-out infinite
+      @keyframes floating
+        0%, 100%
+          transform skewY(-7deg) translate(0, -20px)
+        50%
+          transform skewY(0deg) translate(0, 20px)
+      span
+        text-shadow 1px 1px 0 #ccc,
+                    2px 2px 0 #ccc,
+                    3px 3px 0 #ccc,
+                    4px 4px 0 #ccc,
+                    5px 5px 0 #ccc,
+                    6px 6px 0 #ccc,
+                    7px 7px 0 #ccc,
+                    8px 8px 0 #ccc,
+                    9px 9px 0 #ccc,
+                    20px 20px 0 rgba(0, 0, 0, 0.2)
+        font-weight 700
+        font-size 3em
+    i
+      position absolute
+      background-color #fff
+      top 30px
+      left 30px
+      width 4px
+      height 4px
+      z-index 10
+      border-radius 50%
+      box-shadow 0 0 10px #fff,
+                  0 0 20px #fff,
+                  0 0 40px #fff,
+                  0 0 80px #fff
+      animation animate 1s linear infinite
+      @keyframes animate
+        0%
+          opacity 0
+        10%
+          opacity 1
+        90%
+          opacity 1
+        100%
+          opacity 0
+   -->
 </body>
 </html>

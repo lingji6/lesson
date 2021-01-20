@@ -3,404 +3,815 @@
    * @Author: wzh 
    * @Date: 2021-01-14 13:45:15 
  * @Last Modified by: 1521620993@qq.com
- * @Last Modified time: 2021-01-14 15:45:03
+ * @Last Modified time: 2021-01-20 11:20:26
    */
-  </script>
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11-玻璃瓶中掷骰子</title>
-    <style>
-  @charset "UTF-8";
-  body {
-    margin: 0;
-    padding: 0;
-    background-image: radial-gradient(#99baca 15%, #817474 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11-玻璃瓶中掷骰子</title>
+</head>
+<body>
+  <style>
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(#99baca 15%, #817474 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .glass {
+  width: 280px;
+  height: 320px;
+  background-color: #ffffff26;
+  border-radius: 140px/50px;
+  box-shadow: 0px 5px 15px 0px #000;
+  position: relative;
+}
+body .glass::before, body .glass::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 105px;
+  box-sizing: border-box;
+  border: 10px solid #ffffff26;
+  border-radius: 140px/50px;
+  box-shadow: 0 0 90px 90px #ffffff1f;
+  background-color: #ffffff26;
+  z-index: 2;
+}
+body .glass::after {
+  width: 270px;
+  margin-left: 5px;
+  /* 因为上面用到了绝对定位，所以这里就不能用marign: 0 auto了 */
+  bottom: -10px;
+}
+body .glass .cube {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  top: 42%;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+body .glass .cube.cube1 {
+  transform: rotateX(24deg) rotateY(40deg) translate(-100%, -140%);
+  transition: transform 0.5s ease 0s;
+}
+body .glass .cube.cube1 .circle {
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
+  position: absolute;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+}
+body .glass .cube.cube1 .circle1 {
+  top: 50px;
+  left: 50px;
+  transform: translate(-15px, -15px);
+}
+body .glass .cube.cube1 .circle2:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle2:nth-child(2) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube1 .circle3:nth-child(1) {
+  top: 10px;
+  left: 10px;
+}
+body .glass .cube.cube1 .circle3:nth-child(2) {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+body .glass .cube.cube1 .circle3:nth-child(3) {
+  bottom: 10px;
+  right: 10px;
+}
+body .glass .cube.cube1 .circle4:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle4:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+body .glass .cube.cube1 .circle4:nth-child(3) {
+  bottom: 15px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle4:nth-child(4) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube1 .circle5:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle5:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+body .glass .cube.cube1 .circle5:nth-child(3) {
+  top: 50px;
+  left: 50px;
+  transform: translate(-15px, -15px);
+}
+body .glass .cube.cube1 .circle5:nth-child(4) {
+  bottom: 15px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle5:nth-child(5) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube1 .circle6:nth-child(1) {
+  top: 5px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle6:nth-child(2) {
+  top: 5px;
+  right: 15px;
+}
+body .glass .cube.cube1 .circle6:nth-child(3) {
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+body .glass .cube.cube1 .circle6:nth-child(4) {
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+body .glass .cube.cube1 .circle6:nth-child(5) {
+  bottom: 5px;
+  left: 15px;
+}
+body .glass .cube.cube1 .circle6:nth-child(6) {
+  bottom: 5px;
+  right: 15px;
+}
+body .glass .cube.cube2 {
+  transform: rotateX(-30deg) rotateY(-27deg) translate(-196%, 34%);
+  transition: transform 0.75s ease 0s;
+}
+body .glass .cube.cube2 .circle {
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
+  position: absolute;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+}
+body .glass .cube.cube2 .circle1 {
+  top: 50px;
+  left: 50px;
+  transform: translate(-15px, -15px);
+}
+body .glass .cube.cube2 .circle2:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle2:nth-child(2) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube2 .circle3:nth-child(1) {
+  top: 10px;
+  left: 10px;
+}
+body .glass .cube.cube2 .circle3:nth-child(2) {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+body .glass .cube.cube2 .circle3:nth-child(3) {
+  bottom: 10px;
+  right: 10px;
+}
+body .glass .cube.cube2 .circle4:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle4:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+body .glass .cube.cube2 .circle4:nth-child(3) {
+  bottom: 15px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle4:nth-child(4) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube2 .circle5:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle5:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+body .glass .cube.cube2 .circle5:nth-child(3) {
+  top: 50px;
+  left: 50px;
+  transform: translate(-15px, -15px);
+}
+body .glass .cube.cube2 .circle5:nth-child(4) {
+  bottom: 15px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle5:nth-child(5) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube2 .circle6:nth-child(1) {
+  top: 5px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle6:nth-child(2) {
+  top: 5px;
+  right: 15px;
+}
+body .glass .cube.cube2 .circle6:nth-child(3) {
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+body .glass .cube.cube2 .circle6:nth-child(4) {
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+body .glass .cube.cube2 .circle6:nth-child(5) {
+  bottom: 5px;
+  left: 15px;
+}
+body .glass .cube.cube2 .circle6:nth-child(6) {
+  bottom: 5px;
+  right: 15px;
+}
+body .glass .cube.cube3 {
+  transform: rotateX(148deg) rotateY(71deg) translate(10%, -100%);
+  transition: transform 0.85s ease 0s;
+}
+body .glass .cube.cube3 .circle {
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
+  position: absolute;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+}
+body .glass .cube.cube3 .circle1 {
+  top: 50px;
+  left: 50px;
+  transform: translate(-15px, -15px);
+}
+body .glass .cube.cube3 .circle2:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle2:nth-child(2) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube3 .circle3:nth-child(1) {
+  top: 10px;
+  left: 10px;
+}
+body .glass .cube.cube3 .circle3:nth-child(2) {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+body .glass .cube.cube3 .circle3:nth-child(3) {
+  bottom: 10px;
+  right: 10px;
+}
+body .glass .cube.cube3 .circle4:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle4:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+body .glass .cube.cube3 .circle4:nth-child(3) {
+  bottom: 15px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle4:nth-child(4) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube3 .circle5:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle5:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+body .glass .cube.cube3 .circle5:nth-child(3) {
+  top: 50px;
+  left: 50px;
+  transform: translate(-15px, -15px);
+}
+body .glass .cube.cube3 .circle5:nth-child(4) {
+  bottom: 15px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle5:nth-child(5) {
+  bottom: 15px;
+  right: 15px;
+}
+body .glass .cube.cube3 .circle6:nth-child(1) {
+  top: 5px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle6:nth-child(2) {
+  top: 5px;
+  right: 15px;
+}
+body .glass .cube.cube3 .circle6:nth-child(3) {
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+body .glass .cube.cube3 .circle6:nth-child(4) {
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+body .glass .cube.cube3 .circle6:nth-child(5) {
+  bottom: 5px;
+  left: 15px;
+}
+body .glass .cube.cube3 .circle6:nth-child(6) {
+  bottom: 5px;
+  right: 15px;
+}
+body .glass .cube div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  background: radial-gradient(#8df2ff, #6bd1ff);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), inset 0 0 4px rgba(255, 255, 255, 0.2);
+}
+body .glass .cube div:nth-child(1) {
+  transform: translate3d(0, 0, 50px);
+}
+body .glass .cube div:nth-child(2) {
+  transform: rotateX(90deg) translate3d(0, 0, 50px);
+}
+body .glass .cube div:nth-child(3) {
+  transform: rotateX(180deg) translate3d(0, 0, 50px);
+}
+body .glass .cube div:nth-child(4) {
+  transform: rotateX(270deg) translate3d(0, 0, 50px);
+}
+body .glass .cube div:nth-child(5) {
+  transform: rotateY(90deg) translate3d(0, 0, 50px);
+}
+body .glass .cube div:nth-child(6) {
+  transform: rotateY(-90deg) translate3d(0, 0, 50px);
+}
+body .click {
+  width: 100%;
+  height: 320px;
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+}
+body .click + .glass {
+  animation: unshake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+body .click:checked + .glass {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+body .click:checked + .glass .cube1 {
+  transform: rotateX(-57deg) rotateY(-40deg) translate(-107%, -41%);
+  transition: transform 0.5s ease 0s;
+}
+body .click:checked + .glass .cube2 {
+  transform: rotateX(-130deg) rotateY(-57deg) translate(-283%, -346%);
+  transition: transform 0.75s ease 0s;
+}
+body .click:checked + .glass .cube3 {
+  transform: rotateX(-133deg) rotateY(71deg) translate(13%, -212%);
+  transition: transform 0.85s ease 0s;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
   }
-  body .glass {
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+}
+@keyframes unshake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+}
+  </style>
+
+  <input type="checkbox" class="click">
+  <div class="glass">
+    <div class="cube cube1">
+      <div>
+        <span class="circle circle1"></span>
+      </div>
+      <div>
+        <span class="circle circle2"></span>
+        <span class="circle circle2"></span>
+      </div>
+      <div>
+        <span class="circle circle3"></span>
+        <span class="circle circle3"></span>
+        <span class="circle circle3"></span>
+      </div>
+      <div>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+      </div>
+      <div>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+      </div>
+      <div>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+      </div>
+    </div>
+    <div class="cube cube2">
+      <div>
+        <span class="circle circle1"></span>
+      </div>
+      <div>
+        <span class="circle circle2"></span>
+        <span class="circle circle2"></span>
+      </div>
+      <div>
+        <span class="circle circle3"></span>
+        <span class="circle circle3"></span>
+        <span class="circle circle3"></span>
+      </div>
+      <div>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+      </div>
+      <div>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+      </div>
+      <div>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+      </div>
+    </div>
+    <div class="cube cube3">
+      <div>
+        <span class="circle circle1"></span>
+      </div>
+      <div>
+        <span class="circle circle2"></span>
+        <span class="circle circle2"></span>
+      </div>
+      <div>
+        <span class="circle circle3"></span>
+        <span class="circle circle3"></span>
+        <span class="circle circle3"></span>
+      </div>
+      <div>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle4"></span>
+      </div>
+      <div>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+        <span class="circle circle5"></span>
+      </div>
+      <div>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+        <span class="circle circle6"></span>
+      </div>
+    </div>
+  </div>
+  <!-- 
+    scss
+body {
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(#99baca 15%, #817474 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .glass {
     width: 280px;
     height: 320px;
     background-color: #ffffff26;
     border-radius: 140px/50px;
     box-shadow: 0px 5px 15px 0px #000;
     position: relative;
-  }
-  body .glass::before, body .glass::after {
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 105px;
-    box-sizing: border-box;
-    border: 10px solid #ffffff26;
-    border-radius: 140px/50px;
-    box-shadow: 0 0 90px 90px #ffffff1f;
-    background-color: #ffffff26;
-    z-index: 2;
-  }
-  body .glass::after {
-    width: 270px;
-    margin-left: 5px;
-    /* 因为上面用到了绝对定位，所以这里就不能用marign: 0 auto了 */
-    bottom: -10px;
-  }
-  body .glass .cube {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    left: 50%;
-    top: 42%;
-    transform-style: preserve-3d;
-    z-index: 1;
-  }
-  body .glass .cube.cube1 {
-    transform: rotateX(24deg) rotateY(40deg) translate(-100%, -140%);
-    transition: transform 0.5s ease 0s;
-  }
-  body .glass .cube.cube1 .circle {
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
-    position: absolute;
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-  }
-  body .glass .cube.cube1 .circle1 {
-    top: 50px;
-    left: 50px;
-    transform: translate(-15px, -15px);
-  }
-  body .glass .cube.cube1 .circle2:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle2:nth-child(2) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube1 .circle3:nth-child(1) {
-    top: 10px;
-    left: 10px;
-  }
-  body .glass .cube.cube1 .circle3:nth-child(2) {
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin: auto;
-  }
-  body .glass .cube.cube1 .circle3:nth-child(3) {
-    bottom: 10px;
-    right: 10px;
-  }
-  body .glass .cube.cube1 .circle4:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle4:nth-child(2) {
-    top: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube1 .circle4:nth-child(3) {
-    bottom: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle4:nth-child(4) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube1 .circle5:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle5:nth-child(2) {
-    top: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube1 .circle5:nth-child(3) {
-    top: 50px;
-    left: 50px;
-    transform: translate(-15px, -15px);
-  }
-  body .glass .cube.cube1 .circle5:nth-child(4) {
-    bottom: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle5:nth-child(5) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube1 .circle6:nth-child(1) {
-    top: 5px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle6:nth-child(2) {
-    top: 5px;
-    right: 15px;
-  }
-  body .glass .cube.cube1 .circle6:nth-child(3) {
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-  }
-  body .glass .cube.cube1 .circle6:nth-child(4) {
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-  }
-  body .glass .cube.cube1 .circle6:nth-child(5) {
-    bottom: 5px;
-    left: 15px;
-  }
-  body .glass .cube.cube1 .circle6:nth-child(6) {
-    bottom: 5px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 {
-    transform: rotateX(-30deg) rotateY(-27deg) translate(-196%, 34%);
-    transition: transform 0.75s ease 0s;
-  }
-  body .glass .cube.cube2 .circle {
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
-    position: absolute;
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-  }
-  body .glass .cube.cube2 .circle1 {
-    top: 50px;
-    left: 50px;
-    transform: translate(-15px, -15px);
-  }
-  body .glass .cube.cube2 .circle2:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle2:nth-child(2) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 .circle3:nth-child(1) {
-    top: 10px;
-    left: 10px;
-  }
-  body .glass .cube.cube2 .circle3:nth-child(2) {
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin: auto;
-  }
-  body .glass .cube.cube2 .circle3:nth-child(3) {
-    bottom: 10px;
-    right: 10px;
-  }
-  body .glass .cube.cube2 .circle4:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle4:nth-child(2) {
-    top: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 .circle4:nth-child(3) {
-    bottom: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle4:nth-child(4) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 .circle5:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle5:nth-child(2) {
-    top: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 .circle5:nth-child(3) {
-    top: 50px;
-    left: 50px;
-    transform: translate(-15px, -15px);
-  }
-  body .glass .cube.cube2 .circle5:nth-child(4) {
-    bottom: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle5:nth-child(5) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 .circle6:nth-child(1) {
-    top: 5px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle6:nth-child(2) {
-    top: 5px;
-    right: 15px;
-  }
-  body .glass .cube.cube2 .circle6:nth-child(3) {
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-  }
-  body .glass .cube.cube2 .circle6:nth-child(4) {
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-  }
-  body .glass .cube.cube2 .circle6:nth-child(5) {
-    bottom: 5px;
-    left: 15px;
-  }
-  body .glass .cube.cube2 .circle6:nth-child(6) {
-    bottom: 5px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 {
-    transform: rotateX(148deg) rotateY(71deg) translate(10%, -100%);
-    transition: transform 0.85s ease 0s;
-  }
-  body .glass .cube.cube3 .circle {
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
-    position: absolute;
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-  }
-  body .glass .cube.cube3 .circle1 {
-    top: 50px;
-    left: 50px;
-    transform: translate(-15px, -15px);
-  }
-  body .glass .cube.cube3 .circle2:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle2:nth-child(2) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 .circle3:nth-child(1) {
-    top: 10px;
-    left: 10px;
-  }
-  body .glass .cube.cube3 .circle3:nth-child(2) {
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin: auto;
-  }
-  body .glass .cube.cube3 .circle3:nth-child(3) {
-    bottom: 10px;
-    right: 10px;
-  }
-  body .glass .cube.cube3 .circle4:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle4:nth-child(2) {
-    top: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 .circle4:nth-child(3) {
-    bottom: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle4:nth-child(4) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 .circle5:nth-child(1) {
-    top: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle5:nth-child(2) {
-    top: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 .circle5:nth-child(3) {
-    top: 50px;
-    left: 50px;
-    transform: translate(-15px, -15px);
-  }
-  body .glass .cube.cube3 .circle5:nth-child(4) {
-    bottom: 15px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle5:nth-child(5) {
-    bottom: 15px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 .circle6:nth-child(1) {
-    top: 5px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle6:nth-child(2) {
-    top: 5px;
-    right: 15px;
-  }
-  body .glass .cube.cube3 .circle6:nth-child(3) {
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-  }
-  body .glass .cube.cube3 .circle6:nth-child(4) {
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-  }
-  body .glass .cube.cube3 .circle6:nth-child(5) {
-    bottom: 5px;
-    left: 15px;
-  }
-  body .glass .cube.cube3 .circle6:nth-child(6) {
-    bottom: 5px;
-    right: 15px;
-  }
-  body .glass .cube div {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 50%;
-    top: 50%;
-    border-radius: 8px;
-    background: radial-gradient(#8df2ff, #6bd1ff);
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), inset 0 0 4px rgba(255, 255, 255, 0.2);
-  }
-  body .glass .cube div:nth-child(1) {
-    transform: translate3d(0, 0, 50px);
-  }
-  body .glass .cube div:nth-child(2) {
-    transform: rotateX(90deg) translate3d(0, 0, 50px);
-  }
-  body .glass .cube div:nth-child(3) {
-    transform: rotateX(180deg) translate3d(0, 0, 50px);
-  }
-  body .glass .cube div:nth-child(4) {
-    transform: rotateX(270deg) translate3d(0, 0, 50px);
-  }
-  body .glass .cube div:nth-child(5) {
-    transform: rotateY(90deg) translate3d(0, 0, 50px);
-  }
-  body .glass .cube div:nth-child(6) {
-    transform: rotateY(-90deg) translate3d(0, 0, 50px);
-  }
-  body .click {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 105px;
+      box-sizing: border-box;
+      border: 10px solid #ffffff26;
+      border-radius: 140px/50px;
+      box-shadow: 0 0 90px 90px #ffffff1f;
+      background-color: #ffffff26;
+      z-index: 2;
+    }
+    &::after {
+      width: 270px;
+      margin-left: 5px;
+      /* 因为上面用到了绝对定位，所以这里就不能用marign: 0 auto了 */
+      bottom: -10px;
+    }
+    .cube {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      left: 50%;
+      top: 42%;
+      transform-style: preserve-3d;
+      z-index: 1;
+      @mixin circle {
+        .circle {
+          border-radius: 50%;
+          border: 3px solid rgba(255, 255, 255, 0.2);
+          background-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 4% rgba(255, 255, 255, 0.2), inset 0 0 4% rgba(255, 255, 255, 0.2);
+          position: absolute;
+          box-sizing: border-box;
+          width: 25px;
+          height: 25px;
+        }
+
+        .circle1 {
+          top: 50px;
+          left: 50px;
+          transform: translate(-15px, -15px);
+        }
+
+        .circle2:nth-child(1) {
+          top: 15px;
+          left: 15px;
+        }
+        .circle2:nth-child(2) {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .circle3:nth-child(1) {
+          top: 10px;
+          left: 10px;
+        }
+        .circle3:nth-child(2) {
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          margin: auto;
+        }
+        .circle3:nth-child(3) {
+          bottom: 10px;
+          right: 10px;
+        }
+
+        .circle4:nth-child(1) {
+          top: 15px;
+          left: 15px;
+        }
+        .circle4:nth-child(2) {
+          top: 15px;
+          right: 15px;
+        }
+        .circle4:nth-child(3) {
+          bottom: 15px;
+          left: 15px;
+        }
+        .circle4:nth-child(4) {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .circle5:nth-child(1) {
+          top: 15px;
+          left: 15px;
+        }
+        .circle5:nth-child(2) {
+          top: 15px;
+          right: 15px;
+        }
+        .circle5:nth-child(3) {
+          top: 50px;
+          left: 50px;
+          transform: translate(-15px, -15px);
+        }
+        .circle5:nth-child(4) {
+          bottom: 15px;
+          left: 15px;
+        }
+        .circle5:nth-child(5) {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .circle6:nth-child(1) {
+          top: 5px;
+          left: 15px;
+        }
+        .circle6:nth-child(2) {
+          top: 5px;
+          right: 15px;
+        }
+        .circle6:nth-child(3) {
+          top: 50%;
+          left: 15px;
+          transform: translateY(-50%);
+        }
+        .circle6:nth-child(4) {
+          top: 50%;
+          right: 15px;
+          transform: translateY(-50%);
+        }
+        .circle6:nth-child(5) {
+          bottom: 5px;
+          left: 15px;
+        }
+        .circle6:nth-child(6) {
+          bottom: 5px;
+          right: 15px;
+        }
+      }
+      &.cube1 {
+        transform: rotateX(24deg) rotateY(40deg) translate(-100%, -140%);
+        transition: transform 0.5s ease 0s;
+        @include circle();
+      }
+      &.cube2 {
+        transform: rotateX(-30deg) rotateY(-27deg) translate(-196%, 34%);
+        transition: transform 0.75s ease 0s;
+        @include circle();
+      }
+      &.cube3 {
+        transform: rotateX(148deg) rotateY(71deg) translate(10%, -100%);
+        transition: transform 0.85s ease 0s;
+        @include circle();
+      }
+      div {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        top: 50%;
+        border-radius: 8px;
+        background: radial-gradient(rgb(141 242 255), rgb(107 209 255));
+        box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), inset 0 0 4px rgba(255, 255, 255, 0.2);
+        &:nth-child(1) {
+          transform: translate3d(0, 0, 50px);
+        }
+        &:nth-child(2) {
+          transform: rotateX(90deg) translate3d(0, 0, 50px);
+        }
+        &:nth-child(3) {
+          transform: rotateX(180deg) translate3d(0, 0, 50px);
+        }
+        &:nth-child(4) {
+          transform: rotateX(270deg) translate3d(0, 0, 50px);
+        }
+        &:nth-child(5) {
+          transform: rotateY(90deg) translate3d(0, 0, 50px);
+        }
+        &:nth-child(6) {
+          transform: rotateY(-90deg) translate3d(0, 0, 50px);
+        }
+      }
+    }
+  }
+
+  .click {
     width: 100%;
     height: 320px;
     opacity: 0;
@@ -409,28 +820,29 @@
     margin: 0;
     cursor: pointer;
     outline: none;
+    & + .glass {
+      animation: unshake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+    }
+    &:checked + .glass {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      .cube1 {
+        transform: rotateX(-57deg) rotateY(-40deg) translate(-107%, -41%);
+        transition: transform 0.5s ease 0s;
+      }
+      .cube2 {
+        transform: rotateX(-130deg) rotateY(-57deg) translate(-283%, -346%);
+        transition: transform 0.75s ease 0s;
+      }
+      .cube3 {
+        transform: rotateX(-133deg) rotateY(71deg) translate(13%, -212%);
+        transition: transform 0.85s ease 0s;
+      }
+    }
   }
-  body .click + .glass {
-    animation: unshake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-    transform: translate3d(0, 0, 0);
-  }
-  body .click:checked + .glass {
-    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-  }
-  body .click:checked + .glass .cube1 {
-    transform: rotateX(-57deg) rotateY(-40deg) translate(-107%, -41%);
-    transition: transform 0.5s ease 0s;
-  }
-  body .click:checked + .glass .cube2 {
-    transform: rotateX(-130deg) rotateY(-57deg) translate(-283%, -346%);
-    transition: transform 0.75s ease 0s;
-  }
-  body .click:checked + .glass .cube3 {
-    transform: rotateX(-133deg) rotateY(71deg) translate(13%, -212%);
-    transition: transform 0.85s ease 0s;
-  }
+
   @keyframes shake {
     0% {
       transform: translate(1px, 1px) rotate(0deg);
@@ -466,6 +878,7 @@
       transform: translate(1px, 1px) rotate(0deg);
     }
   }
+
   @keyframes unshake {
     0% {
       transform: translate(1px, 1px) rotate(0deg);
@@ -501,117 +914,7 @@
       transform: translate(1px, 1px) rotate(0deg);
     }
   }
-  
-  /*# sourceMappingURL=index.css.map */
-  
-    </style>
-    <input type="checkbox" class="click">
-    <div class="glass">
-      <div class="cube cube1">
-        <div>
-          <span class="circle circle1"></span>
-        </div>
-        <div>
-          <span class="circle circle2"></span>
-          <span class="circle circle2"></span>
-        </div>
-        <div>
-          <span class="circle circle3"></span>
-          <span class="circle circle3"></span>
-          <span class="circle circle3"></span>
-        </div>
-        <div>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-        </div>
-        <div>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-        </div>
-        <div>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-        </div>
-      </div>
-      <div class="cube cube2">
-        <div>
-          <span class="circle circle1"></span>
-        </div>
-        <div>
-          <span class="circle circle2"></span>
-          <span class="circle circle2"></span>
-        </div>
-        <div>
-          <span class="circle circle3"></span>
-          <span class="circle circle3"></span>
-          <span class="circle circle3"></span>
-        </div>
-        <div>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-        </div>
-        <div>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-        </div>
-        <div>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-        </div>
-      </div>
-      <div class="cube cube3">
-        <div>
-          <span class="circle circle1"></span>
-        </div>
-        <div>
-          <span class="circle circle2"></span>
-          <span class="circle circle2"></span>
-        </div>
-        <div>
-          <span class="circle circle3"></span>
-          <span class="circle circle3"></span>
-          <span class="circle circle3"></span>
-        </div>
-        <div>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-          <span class="circle circle4"></span>
-        </div>
-        <div>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-          <span class="circle circle5"></span>
-        </div>
-        <div>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-          <span class="circle circle6"></span>
-        </div>
-      </div>
-    </div>
-  </body>
-  </html>
+}
+    -->
+</body>
+</html>

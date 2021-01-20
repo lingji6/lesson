@@ -3,7 +3,7 @@
  * @Author: wzh 
  * @Date: 2021-01-09 00:50:16 
  * @Last Modified by: 1521620993@qq.com
- * @Last Modified time: 2021-01-09 19:25:02
+ * @Last Modified time: 2021-01-20 11:20:51
  */
 </script>
 <!DOCTYPE html>
@@ -12,9 +12,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>10-多层卡片</title>
-  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<style>
+.levels {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: -180px;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+.levels .level {
+  position: relative;
+  width: 280px;
+  height: 140px;
+  border-radius: 12px;
+  color: #ffc0cb;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  transform: rotateX(45deg) rotateY(-15deg) rotate(45deg);
+}
+.levels .level.one {
+  margin-top: -70;
+  background-color: #8063e1;
+  background-image: linear-gradient(135deg, #bd7be8, #8063e1);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #8063e1;
+  z-index: 4;
+  opacity: 0.9;
+}
+.levels .level.two {
+  margin-top: -70;
+  background-color: #3f58e3;
+  background-image: linear-gradient(135deg, #7f94fc, #3f58e3);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #3f58e3;
+  z-index: 3;
+  opacity: 0.9;
+}
+.levels .level.three {
+  margin-top: -70;
+  background-color: #2c6fd1;
+  background-image: linear-gradient(135deg, #21bbfe, #2c6fd1);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #2c6fd1;
+  z-index: 2;
+  opacity: 0.9;
+}
+.levels .level.four {
+  margin-top: -70;
+  background-color: #352f64;
+  background-image: linear-gradient(135deg, #415197, #352f64);
+  box-shadow: 20px 20px 60px rgba(34,50,84,0.5), 1px 1px 0px 1px #352f64;
+  z-index: 1;
+  opacity: 0.9;
+}
+.levels .level .title {
+  position: absolute;
+  top: 28px;
+  left: 15px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.levels .level .content {
+  position: absolute;
+  font-weight: 700;
+  bottom: 15px;
+  left: 15px;
+  font-size: 16px;
+}
+.levels .level:hover {
+  transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
+  opacity: 0.6;
+}
+.levels .level:hover:after {
+  transform: translateX(100%);
+  transition: all 1.2s ease-in-out;
+}
+.levels .level::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-image: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.1), rgba(255,255,255,0) 80%);
+}
+</style>
   <div class="levels">
     <div class="level one">
       <div class="title">One</div>
@@ -33,5 +117,75 @@
       <div class="content">Four Content</div>
     </div>
   </div>
+<!-- 
+  stylus
+.levels
+      position: absolute;
+      top 50%
+      left 50%
+      margin-left -140px
+      margin-top -180px
+      transform-style preserve-3d
+      user-select none
+      .level
+        position: relative
+        width: 280px
+        height: 140px
+        border-radius: 12px
+        color: pink
+        cursor pointer
+    
+        level($bgColor, $startColor, $endColor, $boxColor, $z-index) {
+          margin-top: -70;
+          background-color: $bgColor;
+          background-image: linear-gradient(135deg, $startColor, $endColor);
+          box-shadow: 20px 20px 60px rgba(#223254, 0.5), 1px 1px 0px 1px $boxColor
+          z-index: $z-index;
+          opacity 0.9
+        }
+        &.one {
+          level(#8063e1, #bd7be8, #8063e1, #8063e1, 4);
+        }
+        &.two {
+          level(#3f58e3, #7f94fc, #3f58e3, #3f58e3, 3);
+        }
+        &.three {
+          level(#2c6fd1, #21bbfe, #2c6fd1, #2c6fd1, 2);
+        }
+        &.four {
+          level(#352f64, #415197, #352f64, #352f64, 1);
+        }
+    
+        .title
+          position: absolute
+          top: 28px
+          left: 15px
+          font-size: 26px
+          font-weight: bold
+        .content
+          position: absolute
+          font-weight: 700
+          bottom: 15px
+          left: 15px
+          font-size: 16px
+    
+        transition: all .4s ease
+        transform: rotateX(45deg) rotateY(-15deg) rotate(45deg)
+        &:hover
+          transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px)
+          opacity: 0.6
+          &:after
+            transform: translateX(100%)
+            transition: all 1.2s ease-in-out
+        &::after
+          content: ''
+          position: absolute
+          top: 0px
+          left: 0
+          width: 100%
+          height: 100%
+          transform: translateX(-100%)
+          background-image: linear-gradient(60deg, rgba(white,0) 20%, rgba(white,.1), rgba(white,0) 80%)
+ -->
 </body>
 </html>
