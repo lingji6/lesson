@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-进度颜色可调节的玻璃拟态进度条</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        :root {
+        --bgc: #d0d0d0;
+        --sideColor: #fefefe4d;
+        --navy: #0a4069;
+        --labelBorder: #fefefe99;
+        --lime: #76c900;
+        --red: #ec008c;
+        --boxShadow: #333333;
+        --cyan: #57caf4;
+        --start: #80008080;
+        --end: #ff80ff80;
+        --yellow: #f1c40f;
+        --lightGray: #91919133;
+        --transitionDuration: 0.3s;
+        }
+        body {
+        background-color: var(--bgc);
+        }
+        .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        article {
+        width: 20em;
+        /* border: 1px solid blue; */
+        margin-top: 3em;
+        }
+        .chart {
+        perspective: 1000px;
+        }
+        article .chart .bar {
+        height: 6em;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-30deg) rotateY(0deg);
+        }
+        .bar .side {
+        height: 4em;
+        width: 100%;
+        background-color: var(--sideColor);
+        text-align: center;
+        line-height: 4em;
+        color: maroon;
+        /* border: 1px solid red; */
+        position: absolute;
+        }
+        .bar .side.left,
+        .bar .side.right{
+        width: 4em;
+        }
+        .bar .side.front {
+        transform: translateZ(2em);
+        }
+        .bar .side.back {
+        transform: translateZ(-2em);
+        position: absolute;
+        }
+        .bar .side.left {
+        transform: translateX(-2em) rotateY(-90deg);
+        }
+        .bar .side.right {
+        transform: translateX(18em) rotateY(90deg);
+        }
+        .bar .side.top {
+        transform: translateY(-2em) rotateX(90deg);
+        position: absolute;
+        }
+        .bar .side.bottom {
+        transform: translateY(2em) rotateX(-90deg);
+        }
+        .bar .side.top::after,
+        .bar .side.back::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.01em;
+        /* background-color: blue; */
+        bottom: 0;
+        left: 0;
+        box-shadow: 0 0 2em 0.2em var(--boxShadow);
+        }
+        input {
+        display: none;
+        }
+        .labels {
+        display: flex;
+        justify-content: center;
+        }
+        .labels label {
+        border: 1px solid var(--labelBorder);
+        padding: 1em;
+        flex: 1;
+        margin: 0 0.2em;
+        cursor: pointer;
+        text-align: center;
+        color: var(--navy);
+        }
+        .labels label:nth-of-type(1) {
+        margin-left: 0;
+        border-radius: 0.2em 0 0 0.2em;
+        }
+        .labels label:nth-of-type(3) {
+        margin-right: 0;
+        border-radius: 0 0.2em 0.2em 0;
+        }
+        input[id='red']:checked ~ .labels label[for='red'],
+        input[id='cyan']:checked ~ .labels label[for='cyan'],
+        input[id='lime']:checked ~ .labels label[for='lime'],
+        input[id='pos0']:checked ~ .labels label[for='pos0'],
+        input[id='pos1']:checked ~ .labels label[for='pos1'],
+        input[id='pos2']:checked ~ .labels label[for='pos2'],
+        input[id='pos3']:checked ~ .labels label[for='pos3'],
+        input[id='pos4']:checked ~ .labels label[for='pos4'],
+        input[id='dynamic1']:checked ~ .labels label[for='dynamic1'],
+        input[id='dynamic2']:checked ~ .labels label[for='dynamic2'],
+        input[id='dynamic3']:checked ~ .labels label[for='dynamic3'],
+        input[id='dynamic4']:checked ~ .labels label[for='dynamic4'],
+        input[id='dynamic5']:checked ~ .labels label[for='dynamic5'] {
+        color: var(--lime);
+        background-color: var(--navy);
+        }
+        .skin {
+        width: 100%;
+        height: 4em;
+        /* background: red; */
+        transition: all var(--transitionDuration) ease-in-out;
+        }
+
+        /* 颜色切换进度条 */
+        input[id='red']:checked ~ .chart .skin {
+        background-color: var(--red);
+        }
+        input[id='cyan']:checked ~ .chart .skin {
+        background-color: var(--cyan);
+        }
+        input[id='lime']:checked ~ .chart .skin {
+        background-color: var(--lime);
+        }
+
+        /* 分段进度条 */
+        .pos .skin {
+        background: linear-gradient(to right, var(--start), var(--end));
+        }
+        input[id='pos0']:checked ~ .pos .skin {
+        width: 20%;
+        }
+        input[id='pos1']:checked ~ .pos .skin {
+        width: 40%;
+        }
+        input[id='pos2']:checked ~ .pos .skin {
+        width: 60%;
+        }
+        input[id='pos3']:checked ~ .pos .skin {
+        width: 80%;
+        }
+        input[id='pos4']:checked ~ .pos .skin {
+        width: 100%;
+        }
+        .pos .left .skin,
+        .pos .right .skin {
+        background: transparent;
+        }
+
+        /* 动态进度条 */
+        .dynamic .navy .skin {
+        background-color: var(--navy);
+        }
+        .dynamic .yellow .skin {
+        background-color: var(--yellow);
+        }
+        .dynamic .red .skin {
+        background-color: var(--red);
+        }
+        .bars {
+        display: flex;
+        width: 100%;
+        }
+        .bars .bar {
+        flex: 1;
+        }
+        .bars .bar.lightGraySide .left.side,
+        .bars .bar.lightGraySide .right.side,
+        .bars .bar .left .skin,
+        .bars .bar .right .skin {
+        background: transparent;
+        }
+        .bars .bar:nth-child(2) {
+        margin: 0 0.5em;
+        }
+        .dynamic .bar.lightGraySide .side {
+        background-color: var(--lightGray);
+        }
+
+        input[id='dynamic1']:checked ~ .dynamic .bar:nth-child(2) {
+        flex-basis: 30%;
+        }
+        input[id='dynamic1']:checked ~ .chart.dynamic .bars .bar:nth-child(1) .skin {
+        width: 30%;
+        }
+        input[id='dynamic1']:checked ~ .chart.dynamic .bars .bar:nth-child(2) .skin {
+        width: 80%;
+        }
+        input[id='dynamic1']:checked ~ .chart.dynamic .bars .bar:nth-child(3) .skin {
+        width: 60%;
+        }
+
+
+        input[id='dynamic2']:checked ~ .chart.dynamic .bars .bar:nth-child(3) {
+        flex-basis: 30%;
+        }
+        input[id='dynamic2']:checked ~ .chart.dynamic .bars .bar:nth-child(1) .skin {
+        width: 60%;
+        }
+        input[id='dynamic2']:checked ~ .chart.dynamic .bars .bar:nth-child(2) .skin {
+        width: 50%;
+        }
+        input[id='dynamic2']:checked ~ .chart.dynamic .bars .bar:nth-child(3) .skin {
+        width: 80%;
+        }
+
+
+        input[id='dynamic3']:checked ~ .chart.dynamic .bars .bar:nth-child(1) .skin {
+        width: 70%;
+        }
+        input[id='dynamic3']:checked ~ .chart.dynamic .bars .bar:nth-child(2) .skin {
+        width: 70%;
+        }
+        input[id='dynamic3']:checked ~ .chart.dynamic .bars .bar:nth-child(3) .skin {
+        width: 70%;
+        }
+
+        input[id='dynamic4']:checked ~ .chart.dynamic .bars .bar:nth-child(3) {
+        flex-basis: 30%;
+        }
+        input[id='dynamic4']:checked ~ .chart.dynamic .bars .bar:nth-child(1) .skin {
+        width: 50%;
+        }
+        input[id='dynamic4']:checked ~ .chart.dynamic .bars .bar:nth-child(2) .skin {
+        width: 50%;
+        }
+        input[id='dynamic4']:checked ~ .chart.dynamic .bars .bar:nth-child(3) .skin {
+        width: 90%;
+        }
+
+        input[id='dynamic5']:checked ~ .chart.dynamic .bars .bar:nth-child(1) {
+        flex-basis: 60%;
+        }
+        input[id='dynamic5']:checked ~ .chart.dynamic .bars .bar:nth-child(1) .skin {
+        width: 60%;
+        }
+        input[id='dynamic5']:checked ~ .chart.dynamic .bars .bar:nth-child(2) .skin {
+        width: 50%;
+        }
+        input[id='dynamic5']:checked ~ .chart.dynamic .bars .bar:nth-child(3) .skin {
+        width: 30%;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+        <article>
+            <input type="radio" name='changeColor' id="red" checked>
+            <input type="radio" name='changeColor' id="cyan">
+            <input type="radio" name='changeColor' id="lime">
+            <div class="chart">
+                <div class="bar">
+                    <div class="side front">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side back">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side left">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side right">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side top">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side bottom">
+                        <div class="skin"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="labels">
+                <label for="red">Red</label>
+                <label for="cyan">Cyan</label>
+                <label for="lime">Lime</label>
+            </div>
+        </article>
+
+        <article>
+            <input type="radio" name='changePos' id="pos0">
+            <input type="radio" name='changePos' id="pos1" checked>
+            <input type="radio" name='changePos' id="pos2">
+            <input type="radio" name='changePos' id="pos3">
+            <input type="radio" name='changePos' id="pos4">
+            <div class="chart pos">
+                <div class="bar">
+                    <div class="side front">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side back">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side left">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side right">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side top">
+                        <div class="skin"></div>
+                    </div>
+                    <div class="side bottom">
+                        <div class="skin"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="labels">
+                <label for="pos0">1/5</label>
+                <label for="pos1">2/5</label>
+                <label for="pos2">3/5</label>
+                <label for="pos3">4/5</label>
+                <label for="pos4">5/5</label>
+            </div>
+        </article>
+
+        <article>
+            <input type="radio" name="changeDynamic" id="dynamic1" checked>
+            <input type="radio" name="changeDynamic" id="dynamic2">
+            <input type="radio" name="changeDynamic" id="dynamic3">
+            <input type="radio" name="changeDynamic" id="dynamic4">
+            <input type="radio" name="changeDynamic" id="dynamic5">
+            <div class="chart dynamic">
+                <div class="bars">
+                    <div class="bar navy lightGraySide">
+                        <div class="side front">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side back">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side left">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side right">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side top">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side bottom">
+                            <div class="skin"></div>
+                        </div>
+                    </div>
+                    <div class="bar yellow lightGraySide">
+                        <div class="side front">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side back">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side left">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side right">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side top">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side bottom">
+                            <div class="skin"></div>
+                        </div>
+                    </div>
+                    <div class="bar red lightGraySide">
+                        <div class="side front">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side back">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side left">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side right">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side top">
+                            <div class="skin"></div>
+                        </div>
+                        <div class="side bottom">
+                            <div class="skin"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="labels">
+                <label for="dynamic1">D1</label>
+                <label for="dynamic2">D2</label>
+                <label for="dynamic3">D3</label>
+                <label for="dynamic4">D4</label>
+                <label for="dynamic5">D5</label>
+            </div>
+        </article>
+	</div>
+</body>
+</html>
