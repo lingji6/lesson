@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15-嵌套旋转的两个齿轮</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+:root {
+  --start: #eeeeee;
+  --end: #00aadd;
+  --sideColor: #800080;
+  --boxShadow: #eeeeee;
+  --sideColors: #d23d57;
+  --translateCube: 12.76em;
+  --translateWheel1: 6.38em;
+  --translateWheel2: -6.38em;
+}
+body {
+  height: 100vh;
+  background: radial-gradient(var(--start), var(--end));
+  perspective: 64em;
+}
+div {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.container {
+  left: 50%;
+  top: 50%;
+  transform: rotateX(-15deg) rotateY(45deg);
+}
+.side {
+  width: 5em;
+  height: 5em;
+  background-color: var(--sideColor);
+  /* opacity: 0.7; */
+  box-shadow: 0 0 1px 1px var(--boxShadow);
+  margin: -2.5em;
+}
+.side:nth-child(1) {
+  transform: rotateY(0deg) translateZ(2.5em);
+}
+.side:nth-child(2) {
+  transform: rotateY(90deg) translateZ(2.5em);
+}
+.side:nth-child(3) {
+  transform: rotateY(180deg) translateZ(2.5em);
+}
+.side:nth-child(4) {
+  transform: rotateY(270deg) translateZ(2.5em);
+}
+.side:nth-child(5) {
+  transform: rotateX(90deg) translateZ(2.5em);
+}
+.side:nth-child(-n + 4) {
+  background-color: var(--sideColors);
+}
+.cube:nth-child(1) {
+  transform: rotateY(0deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(2) {
+  transform: rotateY(30deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(3) {
+  transform: rotateY(60deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(4) {
+  transform: rotateY(90deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(5) {
+  transform: rotateY(120deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(6) {
+  transform: rotateY(150deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(7) {
+  transform: rotateY(180deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(8) {
+  transform: rotateY(210deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(9) {
+  transform: rotateY(240deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(10) {
+  transform: rotateY(270deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(11) {
+  transform: rotateY(300deg) translateZ(var(--translateCube));
+}
+.cube:nth-child(12) {
+  transform: rotateY(330deg) translateZ(var(--translateCube));
+}
+.wheel:nth-child(1) {
+  transform: translate(var(--translateWheel1));
+}
+.wheel:nth-child(2) {
+  transform: translate(var(--translateWheel2)) rotateX(-90deg);
+}
+.gear {
+  animation: r 10s linear infinite;
+}
+@keyframes r {
+  0% {
+    transform: rotateY(1turn);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <div class='wheel'>
+      <div class='gear'>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+      </div>
+    </div>
+    <div class='wheel'>
+      <div class='gear'>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+        <div class='cube'>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+          <div class='side'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
