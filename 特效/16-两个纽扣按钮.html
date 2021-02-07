@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16-两个纽扣按钮</title>
+  <style>
+    @charset "UTF-8";
+:root {
+  --toggleBgc: #ccd0d4;
+}
+
+body {
+  background-color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 方框 */
+.toggle {
+  display: inline-block;
+  margin: 34px;
+  width: 140px;
+  height: 140px;
+  position: relative;
+  background-color: var(--toggleBgc);
+  border-radius: 8px;
+  box-shadow: inset 0 0 35px 5px rgba(0, 0, 0, 0.3), inset 0 2px 1px 1px rgba(255, 255, 255, 0.9), inset 0 -2px 1px 0px rgba(0, 0, 0, 0.3), 0 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 按钮背部光线 */
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  box-shadow: 0 0 36px 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 圆形纽扣按钮 */
+.toggle .button {
+  display: block;
+  width: 96px;
+  height: 96px;
+  background-color: #ccd0d4;
+  position: absolute;
+  border-radius: 96px;
+  margin-left: -48px;
+  margin-top: -48px;
+  left: 50%;
+  top: 50%;
+  /* 
+  	x向右正方向，y向下正方向，
+  	内外要分清，
+  	x坐标、y坐标、模糊半径blur-radius、扩展半径spread-radius、颜色color
+  	xybsc
+  */
+  box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.5), inset 0 -3px 5px 2px rgba(0, 0, 0, 0.2), inset 0 3px 5px 1px rgba(255, 255, 255, 0.7), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* +和-符号 */
+.toggle .label {
+  display: block;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  font-size: 46px;
+  text-align: center;
+  line-height: 136px;
+  font-weight: 700;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px #ccd0d4, 0px 0px 0px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 隐形覆盖的单选按钮 */
+.toggle input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+
+/* 单选按钮选中效果 */
+.toggle input:checked ~ .button {
+  box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.4), inset 0 -3px 6px 2px rgba(255, 255, 255, 0.9), inset 0 8px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="toggle">
+      <input type="radio" name="btn" checked>
+      <span class="button"></span>
+      <span class="label">+</span>
+    </div>
+    <div class="toggle">
+      <input type="radio" name="btn">
+      <span class="button"></span>
+      <span class="label">–</span>
+    </div>
+  </div>
+</body>
+</html>
