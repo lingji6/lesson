@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-制作一个半透明效果的边框</title>
+</head>
+<body>
+  <style>
+    body {
+      height: 100vh;
+      background-image: repeating-linear-gradient(135deg, wheat 0px, wheat 10px, pink 10px, pink 20px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      box-sizing: border-box;
+      width: 1000px;
+      height: 600px;
+      background: linear-gradient(215deg, #ffffff, #f0ebeb, #cfcccc);
+      border: 60px solid #ff000090;
+      border-radius: 30px/20px;
+      padding: 10px;
+      background-clip: padding-box;
+      color: #3e049b;
+      text-align: center;
+      padding-top: 100px;
+      /* line-height: 460px; */
+      /* 
+      border-box 边框盒 边框+填充+内容
+      padding-box 填充盒 填充+内容
+      content-box 内容盒 内容
+       */
+      box-shadow: 2px 2px 5px 2px #ff0000;
+      text-shadow: 1px 1px 2px #3e049b, 2px 2px 3px #3e049b, 3px 3px 4px #3e049b;
+    }
+    .txt1 {
+      font-size: 88px;
+      color: #3e049b;
+    }
+    .txt2 {
+      font-size: 130px;
+      color: maroon;
+      text-shadow: 1px 1px 2px #800000, 2px 2px 3px #800000, 3px 3px 4px #800000;
+    
+    }
+  </style>
+  <div class="box">
+    <div class="txt1">你不了解的CSS特性</div>
+    <div class="txt2">半透明边框</div>
+  </div>
+</body>
+</html>
