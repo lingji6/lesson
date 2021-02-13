@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-做一个带斜条纹边框的信封效果</title>
+</head>
+<body>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      width: 1000px;
+      height: 600px;
+      border: 1rem solid transparent;
+      /* 
+      重复渐变实现4个颜色的交替
+      白色背景覆盖到上面 background 白色(渐变(白色-白色)) 重复渐变
+      padding-box border-box
+      */
+      background: linear-gradient(#7abcee, #7abcee), repeating-linear-gradient(45deg,
+      red 0%, red 12.5%,
+      transparent 12.5%, transparent 25%,
+      #58a 25%, #58a 37.5%,
+      transparent 37.5%, transparent 50%
+      );
+      background-size: 5rem 5rem;
+      /* background-repeat: no-repeat; */
+      background-clip: padding-box, border-box;
+
+      font-size: 6em;
+      color: #ffd311;
+      text-shadow: 1px -1px 0px #b39300,
+      2px -2px 0px #ad8f11,
+      3px -3px 0px #a88b11,
+      4px -4px 0px #a38711,
+      5px -5px 0px #9e8311,
+      6px -6px 0px #997f11,
+      7px -7px 0px #957a11,
+      8px -8px 0px #8f7611,
+      9px -9px 0px #8a7211,
+      10px -10px 0px #856e11,
+      11px -11px 10px rgba(0, 0, 0, 0.5)
+      ;
+      text-align: center;
+      line-height: 160px;
+      box-sizing: border-box;
+      padding-top: 100px;
+    }
+  </style>
+  <div class="box">
+    我用CSS做了一个 <br>
+    带斜条纹边框的信封
+  </div>
+</body>
+</html>
