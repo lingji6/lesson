@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超精细Flex弹性布局全解析-01-初识flex</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 70%;
+      height: 300px;
+      background-color: wheat;
+      border: 1px solid purple;
+      margin-bottom: 30px;
+      box-sizing: border-box;
+    }
+    .item {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: 1px solid blue;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1、轻松实现元素的水平垂直居中 -->
+  <style>
+    .box1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <div class="box box1">
+    <div class="item"></div>
+  </div>
+  <!-- ---------------分割线--------------------- -->
+
+  <!-- 2、商品列表展示效果(每行两边商品紧贴边框，中间商品间隔相等) -->
+  <style>
+    .box2 {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+    .item {
+      margin-bottom: 10px;
+    }
+  </style>
+  <div class="box box2">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <!-- ---------------分割线--------------------- -->
+
+  <!-- 3、网页经典布局，头部和底部高度随内容撑开，主区域撑满剩余高度 -->
+  <style>
+    .container1 {
+      height: 300px;
+      background-color: brown;
+      margin-bottom: 30px;
+
+      display: flex;
+      flex-direction: column;
+    }
+    .header,
+    .main,
+    .footer {
+      width: 100%;
+      border: 1px solid blue;
+      box-sizing: border-box;
+    }
+    .header,
+    .footer {
+      background-color: wheat;
+    }
+    .main {
+      background-color: pink;
+
+      flex: 1;
+    }
+  </style>
+  <div class="container1">
+    <div class="header">
+      header Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui numquam quam cumque maiores accusantium 
+    </div>
+    <div class="main">
+      main
+    </div>
+    <div class="footer">
+      footer Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eligendi provident obcaecati quis dignissimos excepturi nostrum unde numquam officiis illo ipsam a velit, ad pariatur possimus! Sed expedita nihil sint!
+    </div>
+  </div>
+  <!-- ---------------分割线--------------------- -->
+
+  <!-- 4、提交按钮宽度固定，输入框占据所有剩余宽度 -->
+  <style>
+    .container2 {
+      width: 90%;
+      background-color: pink;
+      padding: 10px;
+      margin: 10px auto;
+
+      display: flex;
+    }
+    .btn {
+      width: 100px;
+    }
+    .txt {
+      flex: 1;
+    }
+  </style>
+  <div class="container2">
+    <input class="txt" type="text">
+    <button class="btn">提交</button>
+  </div>
+</body>
+</html>
