@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超精细Flex弹性布局全解析-03-父容器属性-flex-direction</title>
+</head>
+<body>
+  <!-- 
+      flex-direction：设置主轴方向
+      flex-direction: row; 主轴沿着inline方向延伸 (inline：文字书写方向，汉字自左向右)
+      flex-direction: row-reverse; inline反方向 自右向左
+      flex-direction: column; 主轴沿着block排列的方向 (display: block的块盒，自上而下)
+      flex-direction: column-reverse; block的反方向 自下而上
+
+      反转不只是位置的变化，还包括子项目顺序的反转。
+      不设置宽高的情况下，子项目在主轴方向的尺寸为内容撑开的大小，在侧轴方向会撑满整个空间。
+   -->
+   <style>
+     body {
+       margin: 0;
+       padding: 0;
+     }
+     div {
+       box-sizing: border-box;
+       border-radius: 5px;
+     }
+     .box {
+       width: 500px;
+       height: 200px;
+       background-color: #ffffff;
+       border: 1px solid #ddd;
+       box-shadow: 0px 1px 10px 1px #ddd;
+       margin: 10px;
+       display: flex;
+     }
+     .item {
+       width: 100px;
+       height: 50px;
+       background-color: red;
+       text-align: center;
+       line-height: 50px;
+       font-size: 26px;
+     }
+     .item:nth-child(1) {
+       background-color: antiquewhite;
+     }
+     .item:nth-child(2) {
+       background-color: lightblue;
+     }
+     .item:nth-child(3) {
+       background-color: red;
+     }
+     .item:nth-child(4) {
+       background-color: yellow;
+     }
+   </style>
+   
+   <style>
+     .box1 {
+        flex-direction: row;
+     }
+   </style>
+   <div class="box box1">
+     <div class="item">1</div>
+     <div class="item">2</div>
+     <div class="item">3</div>
+     <div class="item">4</div>
+   </div>
+
+   <style>
+     .box2 {
+       flex-direction: row-reverse;
+     }
+   </style>
+   <div class="box box2">
+     <div class="item">1</div>
+     <div class="item">2</div>
+     <div class="item">3</div>
+     <div class="item">4</div>
+   </div>
+
+   <style>
+     .box3 {
+       flex-direction: column;
+     }
+   </style>
+   <div class="box box3">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+   </div>
+
+   <style>
+     .box4 {
+       flex-direction: column-reverse;
+     }
+   </style>
+   <div class="box box4">
+     <div class="item">1</div>
+     <div class="item">2</div>
+     <div class="item">3</div>
+   </div>
+</body>
+</html>

@@ -4,12 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>02-flex的核心设计思想</title>
+  <title>超精细Flex弹性布局全解析-02-flex的核心设计思想</title>
 </head>
 <body>
+  <!-- 
+    flex是一种一维布局模型，(grid网格布局是二维的)，flex布局一次只能处理一个维度的元素布局，一行或一列。
+    body为container(容器)
+    img为item(项目)
+    主轴默认自左向右(汉字书写习惯自左向右)
+    侧轴垂直于主轴默认自上而下
+   -->
   <style>
     body {
-      display: flex;
+      display: flex; /* 需要居中的元素的父元素设置为flex容器 */
       min-height: 100vh;
       justify-content: center;
       align-items: center;
