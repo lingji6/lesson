@@ -8,19 +8,24 @@
 </head>
 <body>
   <!-- 
-      flex-direction：设置主轴方向
-      flex-direction: row; 主轴沿着inline方向延伸 (inline：文字书写方向，汉字自左向右)
-      flex-direction: row-reverse; inline反方向 自右向左
-      flex-direction: column; 主轴沿着block排列的方向 (display: block的块盒，自上而下)
-      flex-direction: column-reverse; block的反方向 自下而上
+    flex-direction：设置主轴方向
+      row：主轴沿着inline方向延伸 (inline：文字书写方向，汉字自左向右)
+      row-reverse： inline反方向 自右向左
+      column： 主轴沿着block排列的方向 (display: block的块盒，自上而下)
+      column-reverse： block的反方向 自下而上
 
-      反转不只是位置的变化，还包括子项目顺序的反转。
-      不设置宽高的情况下，子项目在主轴方向的尺寸为内容撑开的大小，在侧轴方向会撑满整个空间。
+    反转不只是位置的变化，还包括子项目顺序的反转。
+
+    去掉item元素的宽高
+    不设置宽高的情况下，子项目在主轴方向的尺寸为内容撑开的大小，在侧轴方向会撑满整个空间。
    -->
    <style>
      body {
        margin: 0;
        padding: 0;
+       display: flex;
+       flex-wrap: wrap;
+       margin: 100px;
      }
      div {
        box-sizing: border-box;
@@ -33,11 +38,12 @@
        border: 1px solid #ddd;
        box-shadow: 0px 1px 10px 1px #ddd;
        margin: 10px;
+
        display: flex;
      }
      .item {
-       width: 100px;
-       height: 50px;
+       /* width: 100px;
+       height: 50px; */
        background-color: red;
        text-align: center;
        line-height: 50px;

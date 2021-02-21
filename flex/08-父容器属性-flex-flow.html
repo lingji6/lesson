@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08-父容器属性-flex-flow</title>
+</head>
+<body>
+  <!--  
+    flex-flow：flex-direction和flex-wrap的简写属性，顺序任意。
+  -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+      justify-content: center;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+    .box {
+      width: 500px;
+      height: 110px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 10px 1px #ddd;
+      margin: 10px;
+
+      display: flex;
+    }
+    .item {
+      width: 100px;
+      height: 30px;
+      background-color: pink;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .box1 {
+      flex-flow: column wrap;
+    }
+    .box1 > .item {
+      background-color: purple;
+    }
+
+    .box2 {
+      flex-flow: wrap row-reverse;
+    }
+    .box2 > .item {
+      background-color: magenta;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box2">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+</body>
+</html>

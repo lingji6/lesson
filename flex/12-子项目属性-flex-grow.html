@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-子项目属性-flex-grow</title>
+</head>
+<body>
+  <!-- 
+    flex-grow：定义子项目的拉伸因子
+      默认值为0(默认有剩余空间不会拉伸)
+      可取值：正整数、正小数、0。不能为负值。
+      只有当父容器有剩余空间的时候，这个属性值才能生效
+    注意：首先要明确一点，flex-grow和flex-basis的共同作用才能得到最终的宽度值
+    所有item拉伸后的最终宽度不能超过max-width
+    计算公式：
+      假设一个父容器包含三个item的flex-basis的分别为：item1、item2、item3
+      所有子item的flex-grow的总和为sum = item1 + item2 + item3
+    两种情况：
+      sum > 1
+        item1的宽度 = flex-basis + 剩余宽度 * ( item1 / sum)
+        另外item两个同理
+      sum < 1
+        item1的宽度 = flex-basis + 剩余宽度 * item1
+        另外item两个同理
+        这种情况下子项目是不能分配完剩余空间的，所以还会有剩余空间
+
+    sum > 1的情况
+      剩余宽度 = 660 - ( 3 * 100 ) = 360
+      sum = 1 + 2 + 3 = 6
+      item1最终宽度：100 + 360 * ( 1 / 6 ) = 160
+      item2最终宽度：100 + 360 * ( 2 / 6 ) = 220
+      item3最终宽度：100 + 360 * ( 3 / 6 ) = 280
+    sum < 1的情况
+      剩余宽度 = 660 - ( 3 * 100 ) = 360
+      sum = 0.1 + 0.2 + 0.3 = 0.6
+      item1最终宽度：100 + 360 * 0.1 = 136
+      item2最终宽度：100 + 360 * 0.2 = 172
+      item3最终宽度：100 + 360 * 0.3 = 208
+   -->
+   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 15px;
+    }
+    .box {
+      width: 660px;
+      height: 150px;
+      background-color: pink;
+      box-shadow: 0px 1px 10px 1px #333;
+      margin: 30px;
+
+      display: flex;
+    }
+    .item {
+      text-align: center;
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      flex-basis: 100px;
+    }
+    .box1 .item1 {
+      background-color: purple;
+      flex-grow: 1;
+    }
+    .box1 .item2 {
+      background-color: maroon;
+      flex-grow: 2;
+    }
+    .box1 .item3 {
+      background-color: orange;
+      flex-grow: 3;
+      max-width: 100px;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+  </div>
+  <style>
+    .box2 .item1 {
+      background-color: purple;
+      flex-grow: 0.1;
+    }
+    .box2 .item2 {
+      background-color: maroon;
+      flex-grow: 0.2;
+    }
+    .box2 .item3 {
+      background-color: orange;
+      flex-grow: 0.3;
+    }
+  </style>
+  <div class="box box2">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09-子项目属性-align-self</title>
+</head>
+<body>
+  
+  <!-- 
+    align-self: 覆盖设置在父容器上面的align-items的属性值
+      auto：默认值，遵从父容器的align-items的属性值
+      flex-start、center、flex-end、stretch、baseline效果与align-items相同
+
+      子项目只设置宽度，不设置高度
+   -->
+   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+    .box {
+      width: 600px;
+      height: 200px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 10px 1px #ddd;
+      margin: 10px;
+
+      display: flex;
+    }
+    .item {
+      width: 100px;
+      background-color: red;
+      text-align: center;
+      font-size: 26px;
+      color: #fff;
+    }
+
+    .box1 {
+      align-items: flex-start;
+    }
+    .box1 > .item:nth-child(1) {
+      align-self: center;
+    }
+    .box1 > .item:nth-child(2) {
+      align-self: flex-end;
+    }
+    .box1 > .item:nth-child(3) {
+      align-self: stretch;
+    }
+    .box1 > .item:nth-child(4) {
+      font-size: 66px;
+      align-self: baseline;
+    }
+    .box1 > .item:nth-child(5) {
+      font-size: 36px;
+      align-self: baseline;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</body>
+</html>

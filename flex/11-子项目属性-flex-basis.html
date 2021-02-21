@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11-子项目属性-flex-basis</title>
+</head>
+<body>
+  <!-- 
+    flex-basis：设置子项目在主轴上的初始尺寸
+      auto：默认值，相当于flex-basis没有设置值
+      可取值：不能为负值
+      优先级：min-width/max-width > flex-basis > width > 由内容撑开的宽度
+   -->
+   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 15px;
+    }
+    .box {
+      width: 650px;
+      height: 150px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 10px 1px #ddd;
+      margin: 10px;
+
+      display: flex;
+    }
+    .item {
+      text-align: center;
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .box1 > .item:nth-child(1) {
+      background-color: red;
+
+      flex-basis: 200px;
+    }
+    .box1 > .item:nth-child(2) {
+      background-color: yellow;
+      min-width: 200px;
+      flex-basis: 60px;
+      width: 30px;
+    }
+    .box1 > .item:nth-child(3) {
+      background-color: blue;
+      max-width: 200px;
+      flex-basis: 260px;
+      width: 300px;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04-父容器属性-justify-content</title>
+</head>
+<body>
+  <!-- 
+    justify-content: 设置子项目在主轴方向上的对齐方式
+      flex-start：默认值，沿主轴起点对齐
+      flex-end：沿主轴终点对齐
+      center：沿主轴居中对齐
+      space-between：沿主轴空白居中分布，两侧贴边
+      space-around：沿主轴空白环绕分布
+      space-evenly：沿主轴空白均分分布
+   -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+    .box {
+      width: 500px;
+      height: 200px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 10px 1px #ddd;
+      margin: 10px;
+
+      display: flex;
+    }
+    .item {
+      width: 100px;
+      height: 50px;
+      background-color: red;
+      text-align: center;
+      line-height: 50px;
+      font-size: 26px;
+      color: #fff;
+    }
+
+    .box1 {
+      justify-content: flex-start;
+    }
+    .box1 > .item {
+      background-color: red;
+    }
+
+    .box2 {
+      justify-content: flex-end;
+    }
+    .box2 > .item {
+      background-color: blue;
+    }
+
+    .box3 {
+      justify-content: center;
+    }
+    .box3 > .item {
+      background-color: purple;
+    }
+
+    .box4 {
+      justify-content: space-between;
+    }
+    .box4 > .item {
+      background-color: brown;
+    }
+
+    .box5 {
+      justify-content: space-around;
+    }
+    .box5 > .item {
+      background-color: chocolate;
+    }
+
+    .box6 {
+      justify-content: space-evenly;
+    }
+    .box6 > .item {
+      background-color: indigo;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="box box2">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="box box3">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="box box4">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="box box5">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="box box6">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+</body>
+</html>

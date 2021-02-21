@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07-父容器属性-align-content</title>
+</head>
+<body>
+  <!-- 
+    align-content: 设置多行子项目在侧轴上的对齐方式(类似于justify-content)。
+      flex-start：默认值，沿侧轴起点对齐。(高度随内容撑开)
+      center：沿侧轴居中对齐。(高度随内容撑开)
+      flex-end：沿侧轴终点对齐。(高度随内容撑开)
+      space-between：沿侧轴空白居中分布，两侧贴边。(高度随内容撑开)
+      space-around：沿侧轴空白环绕分布。(高度随内容撑开)
+      space-evenly：沿侧轴空白均分分布。(高度随内容撑开)
+      stretch：高度自动时，所有子项目的高度和撑满父容器高度。设置高度则会按照固定高度呈现，且占据的高度不会变，这点是和flex-start不同的
+      normal：默认值。等同于stretch
+   -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+      justify-content: center;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+    .box {
+      width: 500px;
+      height: 110px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 10px 1px #ddd;
+      margin: 10px;
+
+      display: flex;
+      /* 设置所有box都换行 */
+      flex-wrap: wrap;
+    }
+    .item {
+      width: 100px;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+    }
+
+
+    .box1 {
+      align-content: flex-start;
+    }
+    .box1 > .item {
+      background-color: magenta;
+    }
+
+    .box2 {
+      align-content: center;
+    }
+    .box2 > .item {
+      background-color: maroon;
+    }
+    
+    .box3 {
+      align-content: flex-end;
+    }
+    .box3 > .item {
+      background-color: orange;
+    }
+    
+    .box4 {
+      align-content: space-between;
+    }
+    .box4 > .item {
+      background-color: sienna;
+    }
+    
+    .box5 {
+      align-content: space-around;
+    }
+    .box5 > .item {
+      background-color: violet;
+    }
+    
+    .box6 {
+      align-content: space-evenly;
+    }
+    .box6 > .item {
+      background-color: salmon;
+    }
+
+    .box7 {
+      align-content: stretch;
+    }
+    .box7 > .item {
+      background-color: purple;
+    }
+
+    .box8 {
+      align-content: normal;
+    }
+    .box8 > .item {
+      background-color: orchid;
+    }
+
+    .box9 {
+      align-content: stretch;
+    }
+    .box9 > .item {
+      background-color: purple;
+      height: 30px;
+    }
+
+    .box10 {
+      align-content: normal;
+    }
+    .box10 > .item {
+      background-color: orchid;
+      height: 30px;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box2">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box3">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box4">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box5">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box6">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box7">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box8">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box9">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+  <div class="box box10">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+</body>
+</html>

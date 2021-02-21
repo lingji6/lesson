@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-子项目属性-order</title>
+</head>
+<body>
+  
+  <!-- 
+    order: 设置子项目的排列顺序
+      默认值：0
+      可取值：正整数、负整数、0，值越小越靠前
+   -->
+   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 15px;
+    }
+    .box {
+      width: 600px;
+      height: 200px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 10px 1px #ddd;
+      margin: 10px;
+
+      display: flex;
+    }
+    .item {
+      width: 100px;
+      background-color: red;
+      text-align: center;
+      color: #fff;
+    }
+    .box1 > .item:nth-child(1) {
+      font-size: 26px;
+      order: -1;
+    }
+    .box1 > .item:nth-child(2) {
+      font-size: 16px;
+      order: -2;
+    }
+    .box1 > .item:nth-child(3) {
+      font-size: 56px;
+      order: 1;
+    }
+    .box1 > .item:nth-child(4) {
+      font-size: 36px;
+    }
+    .box1 > .item:nth-child(5) {
+      font-size: 66px;
+      order: 2;
+    }
+  </style>
+  
+  <div class="box box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</body>
+</html>

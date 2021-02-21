@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14-子项目属性-flex</title>
+</head>
+<body>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+    }
+    div {
+      box-sizing: border-box;
+      border-radius: 15px;
+    }
+    .box {
+      width: 600px;
+      height: 150px;
+      background-color: pink;
+      box-shadow: 0px 1px 10px 1px #333;
+      margin: 30px;
+      display: flex;
+    }
+    .item {
+      text-align: center;
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      flex-basis: 250px;
+    }
+
+    .item1 {
+      background-color: purple;
+    }
+    .item2 {
+      background-color: maroon;
+    }
+    .item3 {
+      background-color: orange;
+    }
+  </style>
+  <!-- 
+    flex：flex-grow flex-shrink flex-basis三个属性的简写属性
+      有三种情况，一个值、两个值、三个值。
+      比较不太容易记，下面用比较简单的方式来整理其中的规律
+
+        三个属性的顺序固定不变
+        一个值
+          number 0或1
+          px
+          initial、auto、none
+        两个值
+          first：number 0或1
+          second：
+            number
+            px
+        三个值
+          first：
+            number 0或1
+          second：
+            number 0或1
+          third：
+            px
+   -->
+   <style>
+     .item1 {
+       flex: initial; 
+       /* 初始值：0 1 auto */
+     }
+     .item2 {
+       flex: auto; 
+       /* 1 1 auto */
+     }
+     .item3 {
+       flex: none; 
+       /* 0 0 auto */
+     }
+     .item4 {
+       flex: 0 0 1px;
+       /* 常用的使用方式，这种方式的默认值为：1 1 0 */
+     }
+   </style>
+  <div class="box box1">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+  </div>
+</body>
+</html>
