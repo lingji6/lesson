@@ -1,0 +1,299 @@
+// 定义颜色变量
+$bg-1: #C6C5E1;
+$bg-2: #686688;
+
+$white-1: #fbfbfb;
+$white-2: #f2f2f2;
+$white-3: #c4c2d6;
+$white-4: #675D6E;
+
+$water-1: #7095c9;
+$water-2: #6187be;
+$water-3: #4d6d98;
+$water-4: #234062;
+
+$light-1: #def5f1;
+$light-2: #badfd9;
+
+
+@mixin cube-front($a, $b, $c, $color) {
+  width: $a;
+  height: $b;
+  transform: rotateX(90deg) translateZ(-$c);
+  transform-origin: top;
+  background-color: $color;
+}
+
+@mixin cube-back($a, $b, $c, $color) {
+  width: $a;
+  height: $b;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-color: $color;
+}
+
+@mixin cube-left($a, $b, $c, $color) {
+  width: $c;
+  height: $b;
+  transform-origin: left bottom;
+  transform: rotateY(-90deg) rotateZ(90deg) translateX(-$b);
+  background-color: $color;
+}
+
+
+@mixin cube-right($a, $b, $c, $color) {
+  width: $c;
+  height: $b;
+  transform-origin: right bottom;
+  transform: rotateY(90deg) rotateZ(-90deg) translateX($b) translateZ($a - $c);
+  background-color: $color;
+  /* 30 - 24 */
+}
+
+
+@mixin cube-top($a, $b, $c, $color) {
+  width: $a;
+  height: $c;
+  transform: translateZ($b);
+  background-color: $color;
+}
+
+@mixin cube-bottom($a, $b, $c, $color) {
+  width: $a;
+  height: $c;
+  background-color: $color;
+}
+
+@mixin  cube($a, $b, $c, $color) {
+  
+  &-front {
+    @include cube-front($a, $b, $c, $color);
+  }
+  &-back {
+    @include cube-back($a, $b, $c, $color);
+  }
+  &-left {
+    @include cube-left($a, $b, $c, $color);
+  }
+  &-right {
+    @include cube-right($a, $b, $c, $color);
+  }
+  &-top {
+    @include cube-top($a, $b, $c, $color);
+  }
+  &-bottom {
+    @include cube-bottom($a, $b, $c, $color);
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $bg-1;
+  cursor: pointer;
+  font-size: 2em;
+
+  // 嵌套方式书写css选择器
+  // 房屋开始
+  .house {
+    width: 36rem;
+    height: 24rem;
+    // border: 1px solid red;
+    color: maroon;
+    transform: perspective(2000px) rotateX(75deg) rotateZ(35deg) translateZ(-9rem);
+    color: maroon;
+    position: relative;
+
+    .cube {
+      position: absolute;
+    }
+    .face {
+      background-color: wheat;
+      position: absolute;
+    }
+
+    // 整体阴影开始
+    .shadows {
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      position: absolute;
+      .shadowInner {
+        width: 130%;
+        height: 106%;
+        background-color: #686688;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform-origin: top right;
+        transform: skewY(-3deg);
+        box-shadow: -1rem 1rem 1.5rem #686688;
+        filter: blur(0.5rem);
+      }
+    }
+    // 整体阴影结束
+    
+
+    // 地板主区域开始
+    .floorMain {
+      width: 30rem;
+      height: 24rem;
+      // border: 1px solid blue;
+      @include cube(30rem, .4rem, 24rem, blue);
+
+      // 着色
+      &-front{ background-image: linear-gradient(to right, darken($white-3, 20), $white-3 ); }
+      &-back{ background-color: $white-3; }
+      &-right{ background-color: $white-1; }
+      &-left{ background-color: darken($white-3, 25); }
+      &-top{
+        background-image: linear-gradient(to right, darken($white-3, 10) 40%, darken($white-2, 5) , $white-2  );
+        &::before{
+          content: '';
+          position: absolute;
+          bottom: 0;
+          width: 13rem;
+          height: 7rem;
+          // background-color: blue;
+          background-image: linear-gradient(-135deg, transparent 20%, rgba( darken($light-2, 5), .75));
+        }
+        &::after{
+          content: '';
+          position: absolute;
+          bottom: 1rem;
+          left: 6rem;
+          width: 5rem;
+          height: 5rem;
+          // background-color: maroon;
+          border-radius: 50%;
+          background-image: radial-gradient(rgba($white-1, .25), transparent);
+          filter: blur(.7rem);
+    
+        }
+      }
+      &-bottom{  background-color: $white-3; }
+
+    }
+    // 地板主区域结束
+
+    // 地板右下角开始
+    .floorRightDown {
+      width: 6rem;
+      height: 8rem;
+      // border: 1px solid maroon;
+      right: 0;
+      bottom: 0;
+      @include cube(6rem, .4rem, 8rem, red);
+
+      // 着色
+      &-front{ background-color: $white-3; }
+      &-back{ background-color: $white-3; }
+      &-right{ background-color: $white-1; }
+      &-left{ background-color: $white-1; }
+      &-top{ background-color: $white-2; }
+      &-bottom{ background-color: $white-3; }
+    }
+    // 地板右下角结束
+
+    // 地板右上角开始
+    .floorRightUp {
+      width: 6rem;
+      height: 4rem;
+      // border: 1px solid maroon;
+      right: 0;
+      top: 0;
+      @include cube(6rem, .4rem, 4rem, maroon);
+
+      // 着色
+      &-front{ background-color: $white-3; }
+      &-back{ background-color: $white-3; }
+      &-right{ background-color: $white-1; }
+      &-left{ background-color: $white-1; }
+      &-top{ background-color: $white-2; }
+      &-bottom{ background-color: $white-3; }
+    }
+    // 地板右上角结束
+
+    // 玻璃地板开始
+    .floorGlass {
+      width: 6rem;
+      height: 12rem;
+      // border: 1px solid maroon;
+      right: 0;
+      top: 4rem;
+      @include cube(6rem, 1rem, 12rem, purple);
+
+      // 着色
+      &-front{ background-color: $water-3; opacity: .75; }
+      &-back{ background-color: $water-3; }
+      &-right{ background-image: linear-gradient(to top, $water-2, $water-1 ); }
+      &-left{ background-color: darken($water-4, 10); }
+      &-top{
+        opacity: .75;
+		    background-image:
+        linear-gradient(
+          to right,
+          $water-1 0,
+          $water-1 5%,
+          $water-2 20%,
+          $water-2 30%,
+          $water-1 40%,
+          $water-1 65%,
+          darken($water-1, 3) 70%,
+          darken($water-1, 3) 72%,
+          $water-1 85%
+        );
+
+		    box-shadow: inset .5em .5em 2em rgba($white-1, .5);
+
+        &::before{
+          content: '';
+          position: absolute;
+          width: 40%;
+          height: 100%;
+          overflow: hidden;
+          // background-color: red;
+          background-image:
+            linear-gradient(
+              to bottom,
+              transparent 0,
+              transparent 10%,
+              rgba($water-2, .9) 15%,
+              rgba($water-2, .9) 40%,
+              rgba($white-1, .2) 40%,
+              rgba($white-1, .2) 50%,
+              transparent 60%
+            );
+          filter: blur(.15em);
+        }
+	    }
+      &-bottom{
+        background-color: $water-3;
+        &::before{
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          // background-color: red;
+          box-shadow: -.25em .25em 1em $water-4;
+        }
+      }
+    }
+
+    // 玻璃地板结束
+  }
+  // 房屋结束
+
+}

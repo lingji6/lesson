@@ -1,0 +1,344 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #C6C5E1;
+  cursor: pointer;
+  font-size: 2em;
+}
+body .house {
+  width: 36rem;
+  height: 24rem;
+  color: maroon;
+  transform: perspective(2000px) rotateX(75deg) rotateZ(35deg) translateZ(-9rem);
+  color: maroon;
+  position: relative;
+}
+body .house .cube {
+  position: absolute;
+}
+body .house .face {
+  background-color: wheat;
+  position: absolute;
+}
+body .house .shadows {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  position: absolute;
+}
+body .house .shadows .shadowInner {
+  width: 130%;
+  height: 106%;
+  background-color: #686688;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform-origin: top right;
+  transform: skewY(-3deg);
+  box-shadow: -1rem 1rem 1.5rem #686688;
+  filter: blur(0.5rem);
+}
+body .house .floorMain {
+  width: 30rem;
+  height: 24rem;
+}
+body .house .floorMain-front {
+  width: 30rem;
+  height: 0.4rem;
+  transform: rotateX(90deg) translateZ(-24rem);
+  transform-origin: top;
+  background-color: blue;
+}
+body .house .floorMain-back {
+  width: 30rem;
+  height: 0.4rem;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-color: blue;
+}
+body .house .floorMain-left {
+  width: 24rem;
+  height: 0.4rem;
+  transform-origin: left bottom;
+  transform: rotateY(-90deg) rotateZ(90deg) translateX(-0.4rem);
+  background-color: blue;
+}
+body .house .floorMain-right {
+  width: 24rem;
+  height: 0.4rem;
+  transform-origin: right bottom;
+  transform: rotateY(90deg) rotateZ(-90deg) translateX(0.4rem) translateZ(6rem);
+  background-color: blue;
+  /* 30 - 24 */
+}
+body .house .floorMain-top {
+  width: 30rem;
+  height: 24rem;
+  transform: translateZ(0.4rem);
+  background-color: blue;
+}
+body .house .floorMain-bottom {
+  width: 30rem;
+  height: 24rem;
+  background-color: blue;
+}
+body .house .floorMain-front {
+  background-image: linear-gradient(to right, #8985ad, #c4c2d6);
+}
+body .house .floorMain-back {
+  background-color: #c4c2d6;
+}
+body .house .floorMain-right {
+  background-color: #fbfbfb;
+}
+body .house .floorMain-left {
+  background-color: #7a76a3;
+}
+body .house .floorMain-top {
+  background-image: linear-gradient(to right, #a7a4c2 40%, #e5e5e5, #f2f2f2);
+}
+body .house .floorMain-top::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 13rem;
+  height: 7rem;
+  background-image: linear-gradient(-135deg, transparent 20%, rgba(169, 215, 207, 0.75));
+}
+body .house .floorMain-top::after {
+  content: "";
+  position: absolute;
+  bottom: 1rem;
+  left: 6rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-image: radial-gradient(rgba(251, 251, 251, 0.25), transparent);
+  filter: blur(0.7rem);
+}
+body .house .floorMain-bottom {
+  background-color: #c4c2d6;
+}
+body .house .floorRightDown {
+  width: 6rem;
+  height: 8rem;
+  right: 0;
+  bottom: 0;
+}
+body .house .floorRightDown-front {
+  width: 6rem;
+  height: 0.4rem;
+  transform: rotateX(90deg) translateZ(-8rem);
+  transform-origin: top;
+  background-color: red;
+}
+body .house .floorRightDown-back {
+  width: 6rem;
+  height: 0.4rem;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-color: red;
+}
+body .house .floorRightDown-left {
+  width: 8rem;
+  height: 0.4rem;
+  transform-origin: left bottom;
+  transform: rotateY(-90deg) rotateZ(90deg) translateX(-0.4rem);
+  background-color: red;
+}
+body .house .floorRightDown-right {
+  width: 8rem;
+  height: 0.4rem;
+  transform-origin: right bottom;
+  transform: rotateY(90deg) rotateZ(-90deg) translateX(0.4rem) translateZ(-2rem);
+  background-color: red;
+  /* 30 - 24 */
+}
+body .house .floorRightDown-top {
+  width: 6rem;
+  height: 8rem;
+  transform: translateZ(0.4rem);
+  background-color: red;
+}
+body .house .floorRightDown-bottom {
+  width: 6rem;
+  height: 8rem;
+  background-color: red;
+}
+body .house .floorRightDown-front {
+  background-color: #c4c2d6;
+}
+body .house .floorRightDown-back {
+  background-color: #c4c2d6;
+}
+body .house .floorRightDown-right {
+  background-color: #fbfbfb;
+}
+body .house .floorRightDown-left {
+  background-color: #fbfbfb;
+}
+body .house .floorRightDown-top {
+  background-color: #f2f2f2;
+}
+body .house .floorRightDown-bottom {
+  background-color: #c4c2d6;
+}
+body .house .floorRightUp {
+  width: 6rem;
+  height: 4rem;
+  right: 0;
+  top: 0;
+}
+body .house .floorRightUp-front {
+  width: 6rem;
+  height: 0.4rem;
+  transform: rotateX(90deg) translateZ(-4rem);
+  transform-origin: top;
+  background-color: maroon;
+}
+body .house .floorRightUp-back {
+  width: 6rem;
+  height: 0.4rem;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-color: maroon;
+}
+body .house .floorRightUp-left {
+  width: 4rem;
+  height: 0.4rem;
+  transform-origin: left bottom;
+  transform: rotateY(-90deg) rotateZ(90deg) translateX(-0.4rem);
+  background-color: maroon;
+}
+body .house .floorRightUp-right {
+  width: 4rem;
+  height: 0.4rem;
+  transform-origin: right bottom;
+  transform: rotateY(90deg) rotateZ(-90deg) translateX(0.4rem) translateZ(2rem);
+  background-color: maroon;
+  /* 30 - 24 */
+}
+body .house .floorRightUp-top {
+  width: 6rem;
+  height: 4rem;
+  transform: translateZ(0.4rem);
+  background-color: maroon;
+}
+body .house .floorRightUp-bottom {
+  width: 6rem;
+  height: 4rem;
+  background-color: maroon;
+}
+body .house .floorRightUp-front {
+  background-color: #c4c2d6;
+}
+body .house .floorRightUp-back {
+  background-color: #c4c2d6;
+}
+body .house .floorRightUp-right {
+  background-color: #fbfbfb;
+}
+body .house .floorRightUp-left {
+  background-color: #fbfbfb;
+}
+body .house .floorRightUp-top {
+  background-color: #f2f2f2;
+}
+body .house .floorRightUp-bottom {
+  background-color: #c4c2d6;
+}
+body .house .floorGlass {
+  width: 6rem;
+  height: 12rem;
+  right: 0;
+  top: 4rem;
+}
+body .house .floorGlass-front {
+  width: 6rem;
+  height: 1rem;
+  transform: rotateX(90deg) translateZ(-12rem);
+  transform-origin: top;
+  background-color: purple;
+}
+body .house .floorGlass-back {
+  width: 6rem;
+  height: 1rem;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-color: purple;
+}
+body .house .floorGlass-left {
+  width: 12rem;
+  height: 1rem;
+  transform-origin: left bottom;
+  transform: rotateY(-90deg) rotateZ(90deg) translateX(-1rem);
+  background-color: purple;
+}
+body .house .floorGlass-right {
+  width: 12rem;
+  height: 1rem;
+  transform-origin: right bottom;
+  transform: rotateY(90deg) rotateZ(-90deg) translateX(1rem) translateZ(-6rem);
+  background-color: purple;
+  /* 30 - 24 */
+}
+body .house .floorGlass-top {
+  width: 6rem;
+  height: 12rem;
+  transform: translateZ(1rem);
+  background-color: purple;
+}
+body .house .floorGlass-bottom {
+  width: 6rem;
+  height: 12rem;
+  background-color: purple;
+}
+body .house .floorGlass-front {
+  background-color: #4d6d98;
+  opacity: 0.75;
+}
+body .house .floorGlass-back {
+  background-color: #4d6d98;
+}
+body .house .floorGlass-right {
+  background-image: linear-gradient(to top, #6187be, #7095c9);
+}
+body .house .floorGlass-left {
+  background-color: #16273c;
+}
+body .house .floorGlass-top {
+  opacity: 0.75;
+  background-image: linear-gradient(to right, #7095c9 0, #7095c9 5%, #6187be 20%, #6187be 30%, #7095c9 40%, #7095c9 65%, #658dc5 70%, #658dc5 72%, #7095c9 85%);
+  box-shadow: inset 0.5em 0.5em 2em rgba(251, 251, 251, 0.5);
+}
+body .house .floorGlass-top::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, transparent 0, transparent 10%, rgba(97, 135, 190, 0.9) 15%, rgba(97, 135, 190, 0.9) 40%, rgba(251, 251, 251, 0.2) 40%, rgba(251, 251, 251, 0.2) 50%, transparent 60%);
+  filter: blur(0.15em);
+}
+body .house .floorGlass-bottom {
+  background-color: #4d6d98;
+}
+body .house .floorGlass-bottom::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: -0.25em 0.25em 1em #234062;
+}
