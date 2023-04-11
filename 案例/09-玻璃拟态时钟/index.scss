@@ -1,0 +1,146 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-17 16:36:26
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-17 16:36:26
+  */
+:root {
+  --primary: #6d5dfc;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$shadow: 
+  .3rem .3rem .6rem var(--greyLight-2), 
+  -.2rem -.2rem .5rem var(--white);
+$inner-shadow: 
+  inset .2rem .2rem .5rem var(--greyLight-2), 
+  inset -.2rem -.2rem .5rem var(--white);
+$little-inner-shadow: 
+  inset 1px 1px 1px var(--greyLight-2), 
+  inset -1px -1px 1px var(--white);
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-1);
+}
+
+// * 表盘
+.clock {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  box-shadow: $shadow;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // * 时针
+  .hours {
+    width: .4rem;
+    height: 3.2rem;
+    background: var(--greyLight-3);
+  }
+  
+  // * 分针
+  .minutes {
+    width: .4rem;
+    height: 4.6rem;
+    background: var(--greyDark);
+  }
+
+  // * 秒针
+  .seconds {
+    width: .2rem;
+    height: 5.2rem;
+    background: var(--primary);
+  }
+  
+  // * 所有指针
+  .hand {
+    position: absolute;
+    bottom: 6rem;
+    border-radius: .2rem;
+    transform-origin: bottom;
+    z-index: 1;
+  }
+  .hours {
+    transform: rotate(180deg);
+  }
+  .minutes {
+    transform: rotate(90deg);
+  }
+
+  // * 圆心
+  .point {
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    background: var(--primary);
+    z-index: 2;
+  }
+  
+  // * 刻度标记
+  .marker {
+    width: 11.5rem;
+    height: 11.5rem;
+    box-shadow: $inner-shadow;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // * 内侧圆圈阴影
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      width: 7rem;
+      height: 7rem;
+      box-shadow: $little-inner-shadow;
+    }
+
+    // * 4个刻度标记
+    &__1, &__2, &__3, &__4 {
+      position: absolute;
+      box-shadow: $little-inner-shadow;
+    }
+    &__1 {
+      width: 0.2rem;
+      height: 0.6rem;
+      left: 5.65rem;
+      top: 0.2rem;
+    }
+    &__2 {
+      width: 0.2rem;
+      height: 0.6rem;
+      left: 5.65rem;
+      top: 10.8rem;
+    }
+    &__3 {
+      width: 0.6rem;
+      height: 0.2rem;
+      left: 0.2rem;
+      top: 5.6rem;
+    }
+    &__4 {
+      width: 0.6rem;
+      height: 0.2rem;
+      left: 10.8rem;
+      top: 5.65rem;
+    }
+  }
+}

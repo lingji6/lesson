@@ -1,0 +1,143 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-03 21:06:26
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-03 21:06:26
+  */
+* {
+  /* margin: 0; */
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  /* outline: 1px dashed purple; */
+}
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+.keyboard {
+  outline-width: 3px;
+  /* background-color: red; */
+}
+ul.row {
+  display: flex;
+  /* height: 300px; */
+}
+ul.row li {
+  outline-width: 2px;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  line-height: 3em;
+  border-radius: .4em;
+  color: rgba(0, 0, 0, .7);
+  letter-spacing: 1px;
+  margin: 0.4em;
+}
+
+#tab {
+  width: 5em;
+}
+
+#caps {
+  width: 6em;
+}
+
+#leftShift {
+  width: 8em;
+}
+
+#enter {
+  width: 6em;
+}
+
+#rightShift {
+  width: 8em;
+}
+
+#back {
+  width: 5em;
+}
+
+.little {
+  background-color: crimson;
+  /* 深红色的 */
+  border: 2px solid crimson;
+}
+.little.selected {
+  background-color: transparent;
+  color: crimson;
+}
+.ring {
+  background-color: coral;
+  /* 珊瑚红 */
+  border: 2px solid coral;
+}
+.ring.selected {
+  background-color: transparent;
+  color: coral;
+}
+.middle {
+  background-color: darkorange;
+  /* 深橙色 */
+  border: 2px solid darkorange;
+}
+.middle.selected {
+  background-color: transparent;
+  color: darkorange;
+}
+.forefinger1st {
+  background-color: gold;
+  /* 金色 */
+  border: 2px solid gold;
+}
+.forefinger1st.selected {
+  background-color: transparent;
+  color: gold;
+}
+.forefinger2nd {
+  background-color: khaki;
+  /* 卡其色 */
+  border: 2px solid khaki;
+}
+.forefinger2nd.selected {
+  background-color: transparent;
+  color: khaki;
+}
+.selected {
+  animation: selected .3s infinite;
+}
+@keyframes selected {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, -2px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+.press {
+  animation: press .3s;
+}
+@keyframes press {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

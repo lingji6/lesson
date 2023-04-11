@@ -1,0 +1,257 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-30 19:56:36
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-30 19:56:36
+  */
+/* 声明变量开始 */
+:root {
+  --backC: #EBECF0;
+  --shadowC: 0, 0, 0;
+  --shadowLC: 255, 255, 255;
+  --songC: #A2B1CA;
+  --singerC: #6C7A92;
+  --songC: #6C7A92;
+  --textC: 162, 177, 202;
+  --borderAC: #eee;
+  --startC: #779DFF;
+  --endC: #9EB8FF;
+}
+$btnShadow1: 
+  7px 7px 15px 0px rgba(var(--shadowC), .3), 
+  -7px -7px 15px 0px rgba(var(--shadowLC), .7);
+$btnShadow2: 
+  inset -1px -1px 2px 0px rgba(var(--shadowC), .3), 
+  inset 1px 1px 2px 0px rgba(var(--shadowLC), 1);
+$btnActiveShadow:
+  7px 7px 15px 0px rgba(var(--shadowC), .1), 
+  -7px -7px 15px 0px rgba(var(--shadowLC), .7), 
+  inset 2px 2px 5px 0px rgba(var(--shadowC), .1), 
+  inset -2px -2px 5px 0px rgba(var(--shadowLC), .7);
+$barShadow:
+  inset 2px 2px 3px -2px rgba(var(--shadowC), .3), 
+  inset -2px -2px 3px -2px rgba(var(--shadowLC), 1);
+$circleShadow:
+  4px 4px 5px -2px rgba(var(--shadowC), .3), 
+  -4px -4px 5px 0px rgba(var(--shadowLC), .4);
+$btnPrimaryActiveShadow:
+  7px 7px 15px 0px rgba(var(--shadowC), .1), 
+  -7px -7px 15px 0px rgba(var(--shadowLC), .7), 
+  inset 2px 2px 6px 0px rgba(var(--shadowC), .3), 
+  inset -2px -2px 6px 0px rgba(var(--shadowLC), .3);
+$test:
+  /* 
+    * x偏移 y偏移 模糊半径 扩散半径
+    * x(右正) y(下正)
+  */
+  7px 7px 6px 5px red, 
+  -7px -7px 6px 5px blue, 
+  inset 7px 7px 6px 10px brown, 
+  inset -7px -7px 6px 10px magenta;
+/* 声明变量结束 */
+
+/* 公共样式开始 */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 清除当前div浮动样式 */
+.cl::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+/* 左浮动样式 */
+.fl {
+  float: left;
+}
+/* 右浮动样式 */
+.fr {
+  float: right;
+}
+/* 公共样式结束 */
+
+/* 主体开始 */
+body {
+  background-color: var(--backC);
+
+  /* 播放器开始 */
+  .player {
+    width: 350px;
+    background-color: var(--backC);
+    box-shadow: $btnShadow1;
+    // box-shadow: $test;
+    padding: 25px;
+    border-radius: 35px;
+    margin: 60px auto;
+    
+    /* 按钮公共样式开始 */
+    .btn {
+      border: 2px solid var(--backC);
+      color: rgba(var(--textC), 1);
+      border-radius: 50%;
+      cursor: pointer;
+
+      display: block;
+      outline: none;
+      &:active {
+        text-shadow: .5px .5px 2px rgba(var(--shadowC), .6);
+      }
+    }
+    /* 按钮公共样式结束 */
+
+    /* 顶部导航开始 */
+    .nav {
+      // border: 1px solid red;
+      // background-color: blue;
+      .btn {
+        width: 40px;
+        height: 40px;
+        box-shadow: $btnShadow1;
+        &:active {
+          box-shadow: $btnActiveShadow;
+        }
+      }
+    }
+    /* 顶部导航结束 */
+
+    /* 唱片区域开始 */
+    .disc {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 20px auto 60px;
+      box-shadow: $btnShadow1;
+      border: 5px solid var(--backC);
+      animation: rotation 2s infinite linear;
+    }
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    /* 唱片区域结束 */
+
+    /* 歌曲信息开始 */
+    .info {
+      text-align: center;
+      letter-spacing: 3px;
+      .song {
+        color: var(--songC);
+        font-weight: 600;
+        font-size: 19px;
+        margin-bottom: 5px;
+      }
+      .singer {
+        color: var(--singerC);
+        margin-bottom: 25px;
+      }
+    }
+    /* 歌曲信息结束 */
+
+    /* 数字时间区域开始 */
+    .timing {
+      // background-color: red;
+      color: rgba(var(--textC), 1);
+      height: 30px;
+      div {
+        line-height: 30px;
+      }
+    }
+    /* 数字时间区域结束 */
+
+    /* 进度条开始 */
+    .progress {
+      // background-color: red;
+      height: 6px;
+      margin-bottom: 50px;
+      position: relative;
+      /* 长方形进度开始 */
+      .bar {
+        height: 6px;
+        // background-color: blue;
+        box-shadow: $barShadow;
+        border-radius: 3px;
+        cursor: pointer;
+        &::before {
+          content: '';
+          display: block;
+          height: 6px;
+          width: 36%;
+          background: linear-gradient(to right, var(--startC), var(--endC));
+          border-radius: 3px;
+        }
+      }
+      /* 长方形进度结束 */
+
+      /* 圆形按钮开始 */
+      .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: $circleShadow;
+        position: absolute;
+        left: 36%;
+        top: 50%;
+        // border: 1px solid red;
+        transform: translate(-50%, -50%);
+        // opacity: .8;
+        background-color: var(--backC);
+        cursor: pointer;
+        &::before {
+          content: '';
+          display: block;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: var(--endC);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          box-shadow: inset 2px 2px 6px 0px rgba(var(--shadowC), .3);
+        }
+      }
+      /* 圆形按钮结束 */
+    }
+    /* 进度条结束 */
+    
+    /* 控制按钮开始 */
+    .control {
+      .btn {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+        box-shadow: $btnShadow1, $btnShadow2;
+        cursor: pointer;
+        &:active {
+          box-shadow: $btnActiveShadow;
+        }
+        &_primary {
+          background: linear-gradient(135deg, var(--startC), var(--endC));
+          color: #E0E0E0;
+          &:active {
+            box-shadow: $btnPrimaryActiveShadow;
+          }
+        }
+        &:nth-child(1) {
+          margin-left: 16px;
+        }
+        &:nth-child(2) {
+          margin-left: 32px;
+        }
+        &:nth-child(3) {
+          margin-right: 16px;
+        }
+      }
+    }
+    /* 控制按钮结束 */
+
+  }
+}
+/* 主体结束 */

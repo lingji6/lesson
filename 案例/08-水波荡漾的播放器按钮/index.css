@@ -1,0 +1,95 @@
+
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-16 21:36:26 
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-16 21:36:26
+  */
+:root {
+  --primary: #6d5dfc;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-1);
+}
+
+.circle {
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+}
+.circle__btn {
+  width: 6rem;
+  height: 6rem;
+  background: var(--greyLight-1);
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  color: var(--primary);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.circle__btn.shadow {
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+}
+.circle__btn .fa-play {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.circle__btn .fa-play.visibility {
+  opacity: 1;
+}
+.circle__btn .fa-pause {
+  position: absolute;
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+.circle__btn .fa-pause.visibility {
+  opacity: 0;
+}
+.circle__wave1, .circle__wave2 {
+  width: 6rem;
+  height: 6rem;
+  position: absolute;
+  border-radius: 50%;
+}
+.circle__wave1.paused, .circle__wave2.paused {
+  animation-play-state: paused;
+}
+.circle__wave1 {
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--greyLight-2), -0.4rem -0.4rem 0.8rem var(--white);
+  background: linear-gradient(to bottom right, var(--greyLight-2) 0%, var(--white) 100%);
+  animation: waves 4s linear infinite;
+}
+.circle__wave2 {
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--greyLight-2), -0.4rem -0.4rem 0.8rem var(--white);
+  animation: waves 4s linear 2s infinite;
+}
+@keyframes waves {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

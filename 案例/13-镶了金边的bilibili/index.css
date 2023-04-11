@@ -1,0 +1,64 @@
+  /*
+  * @Author: wzh 
+  * @Date: 2021-08-28 19:06:06
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-08-28 19:06:06
+  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --gold: #ffb338;
+  --light-shadow: #77571d;
+  --dark-shadow: #3e2904;
+}
+.wrapper {
+  background: radial-gradient(#272727, #1b1b1b);
+  display: grid;
+  /* 只划分一块区域 */
+  grid-template-areas: 'overlap';
+  place-content: center;
+  /* text-transform: uppercase; */
+  height: 100vh;
+  font-family: 'comic sans ms';
+}
+.wrapper > div {
+  /* 两个div全部放在同一区域 */
+  grid-area: overlap;
+  font-weight: 900;
+  /* clamp(最小值、首选值、最大值)，首选值如果在最小和最大范围之间，则取首选值，如果超出最小值则取最小值，如果超出最大值则取最大值，总而言之，最终值不能超出最大值和最小值的范围 */
+  font-size: clamp( 3em, 21vw, 15rem);
+  letter-spacing: 1px; 
+  background-clip: text;  
+  /* chrome的私有属性 背景被裁剪成文字的前景色 */
+  -webkit-background-clip: text;
+}
+div.bg {
+  background-image: 
+    repeating-linear-gradient(
+      105deg, 
+      var(--gold) 0% , 
+      var(--dark-shadow) 5%,
+      var(--gold) 12%
+    );
+  /* 设置当前元素的alpha蒙版投影，是一个模糊的，偏移的版本，用特定的颜色绘制并合成，然后放在元素的下面。参数：(x轴偏移量、y轴偏移量、模糊半径、扩散半径) */
+  filter: drop-shadow(5px 15px 15px black);
+  color: transparent;
+  /* 金色的框的背景要稍微高一点 */
+  transform: scaleY(1.05) scaleX(1.01);
+  /* 需要以上面为基准点，这样金色的框就会整体在下面的神色字体的下面形成金色边框阴影效果 */
+  transform-origin: left top;
+}
+div.fg{
+  background-image: 
+    repeating-linear-gradient( 
+      5deg,  
+      var(--gold) 0% , 
+      var(--light-shadow) 23%, 
+      var(--gold) 31%
+    );
+  color: #5e2127;
+  transform: scale(1);
+}

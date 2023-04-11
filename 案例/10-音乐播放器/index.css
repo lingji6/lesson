@@ -1,0 +1,208 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-30 19:56:36
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-30 19:56:36
+  */
+@charset "UTF-8";
+/* 声明变量开始 */
+:root {
+  --backC: #EBECF0;
+  --shadowC: 0, 0, 0;
+  --shadowLC: 255, 255, 255;
+  --songC: #A2B1CA;
+  --singerC: #6C7A92;
+  --songC: #6C7A92;
+  --textC: 162, 177, 202;
+  --borderAC: #eee;
+  --startC: #779DFF;
+  --endC: #9EB8FF;
+}
+
+/* 声明变量结束 */
+/* 公共样式开始 */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 清除当前div浮动样式 */
+.cl::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 左浮动样式 */
+.fl {
+  float: left;
+}
+
+/* 右浮动样式 */
+.fr {
+  float: right;
+}
+
+/* 公共样式结束 */
+/* 主体开始 */
+body {
+  background-color: var(--backC);
+  /* 播放器开始 */
+}
+body .player {
+  width: 350px;
+  background-color: var(--backC);
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.3), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7);
+  padding: 25px;
+  border-radius: 35px;
+  margin: 60px auto;
+  /* 按钮公共样式开始 */
+  /* 按钮公共样式结束 */
+  /* 顶部导航开始 */
+  /* 顶部导航结束 */
+  /* 唱片区域开始 */
+  /* 唱片区域结束 */
+  /* 歌曲信息开始 */
+  /* 歌曲信息结束 */
+  /* 数字时间区域开始 */
+  /* 数字时间区域结束 */
+  /* 进度条开始 */
+  /* 进度条结束 */
+  /* 控制按钮开始 */
+  /* 控制按钮结束 */
+}
+body .player .btn {
+  border: 2px solid var(--backC);
+  color: rgba(var(--textC), 1);
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  outline: none;
+}
+body .player .btn:active {
+  text-shadow: 0.5px 0.5px 2px rgba(var(--shadowC), 0.6);
+}
+body .player .nav .btn {
+  width: 40px;
+  height: 40px;
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.3), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7);
+}
+body .player .nav .btn:active {
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.1), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7), inset 2px 2px 5px 0px rgba(var(--shadowC), 0.1), inset -2px -2px 5px 0px rgba(var(--shadowLC), 0.7);
+}
+body .player .disc {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto 60px;
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.3), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7);
+  border: 5px solid var(--backC);
+  animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body .player .info {
+  text-align: center;
+  letter-spacing: 3px;
+}
+body .player .info .song {
+  color: var(--songC);
+  font-weight: 600;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+body .player .info .singer {
+  color: var(--singerC);
+  margin-bottom: 25px;
+}
+body .player .timing {
+  color: rgba(var(--textC), 1);
+  height: 30px;
+}
+body .player .timing div {
+  line-height: 30px;
+}
+body .player .progress {
+  height: 6px;
+  margin-bottom: 50px;
+  position: relative;
+  /* 长方形进度开始 */
+  /* 长方形进度结束 */
+  /* 圆形按钮开始 */
+  /* 圆形按钮结束 */
+}
+body .player .progress .bar {
+  height: 6px;
+  box-shadow: inset 2px 2px 3px -2px rgba(var(--shadowC), 0.3), inset -2px -2px 3px -2px rgba(var(--shadowLC), 1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+body .player .progress .bar::before {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 36%;
+  background: linear-gradient(to right, var(--startC), var(--endC));
+  border-radius: 3px;
+}
+body .player .progress .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 4px 4px 5px -2px rgba(var(--shadowC), 0.3), -4px -4px 5px 0px rgba(var(--shadowLC), 0.4);
+  position: absolute;
+  left: 36%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--backC);
+  cursor: pointer;
+}
+body .player .progress .circle::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--endC);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 2px 2px 6px 0px rgba(var(--shadowC), 0.3);
+}
+body .player .control .btn {
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.3), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7), inset -1px -1px 2px 0px rgba(var(--shadowC), 0.3), inset 1px 1px 2px 0px rgba(var(--shadowLC), 1);
+  cursor: pointer;
+}
+body .player .control .btn:active {
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.1), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7), inset 2px 2px 5px 0px rgba(var(--shadowC), 0.1), inset -2px -2px 5px 0px rgba(var(--shadowLC), 0.7);
+}
+body .player .control .btn_primary {
+  background: linear-gradient(135deg, var(--startC), var(--endC));
+  color: #E0E0E0;
+}
+body .player .control .btn_primary:active {
+  box-shadow: 7px 7px 15px 0px rgba(var(--shadowC), 0.1), -7px -7px 15px 0px rgba(var(--shadowLC), 0.7), inset 2px 2px 6px 0px rgba(var(--shadowC), 0.3), inset -2px -2px 6px 0px rgba(var(--shadowLC), 0.3);
+}
+body .player .control .btn:nth-child(1) {
+  margin-left: 16px;
+}
+body .player .control .btn:nth-child(2) {
+  margin-left: 32px;
+}
+body .player .control .btn:nth-child(3) {
+  margin-right: 16px;
+}
+
+/* 主体结束 */

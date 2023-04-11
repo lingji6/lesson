@@ -1,0 +1,50 @@
+<script>
+/*
+ * @Author: wzh 
+ * @Date: 2021-06-08 11:14:28 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-06-08 13:43:13
+ */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21-内嵌式圆环进度条</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card__percent">
+        <svg>
+          <defs>
+            <radialGradient id="gradient" cx="50%" cy="50%" r="90%" fx="50%" fy="50%">
+              <stop offset="30%"   stop-color="var(--primary-dark)"/>
+              <stop offset="100%" stop-color="var(--primary-light)"/>
+            </radialGradient>
+          </defs>
+          <circle cx='90' cy='90' r='90' id="circle" stroke="url(#gradient)"></circle>
+        </svg>
+        <div class="circle"></div>
+        <div class="circle circle__medium"></div>
+        <div class="circle circle__small"></div>
+        <div class="card__number">50%</div>
+      </div> 
+    </div>
+    
+    <div class="form">
+      <input type="text" 
+             placeholder="50" 
+             id="percent" maxlength="3" onkeypress="return isNumberic(event)">
+      <button class="form__btn" onclick="changePercent()">确定</button>
+      <div class="tooltip">
+        <span class="tooltip__text" data-toggle="tooltip">无效的数字</span>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

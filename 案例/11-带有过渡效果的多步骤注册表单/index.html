@@ -1,0 +1,88 @@
+<script>
+/*
+  * @Author: wzh 
+  * @Date: 2021-07-08 19:06:06
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-07-08 19:06:06
+  */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>带有过渡效果的多步骤注册表单</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="main">
+
+    <!-- * 步骤进度条开始 -->
+    <ul class="bar">
+      <!-- * 步骤分区1开始 -->
+      <li class="active">
+        <span class="num">1</span>
+        <span class="txt">基本信息</span>
+      </li>
+      <!-- * 步骤分区1结束 -->
+      <li>
+        <span class="num">2</span>
+        <span class="txt">社交账号</span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span class="txt">认证信息</span>
+      </li>
+    </ul>
+    <!-- * 步骤进度条结束 -->
+
+    <!-- * 小卡片表单开始 -->
+    <form class="steps">
+      <!-- * 步骤1小卡片开始 -->
+      <div class="step">
+        <h2 class="title">基本信息</h2>
+        <h3 class="subtitle">步骤1</h3>
+
+        <input type="text" name='email' placeholder="邮箱">
+        <input type="password" name='pwd' placeholder="密码" autocomplete>
+        <input type="password" name='repwd' placeholder="确认密码" autocomplete>
+
+        <input type="button" class="btn next" value="下一步">
+      </div>
+      <!-- * 步骤1小卡片结束 -->
+
+      <!-- * 步骤2小卡片开始 -->
+      <div class="step">
+        <h2 class="title">社交账号</h2>
+        <h3 class="subtitle">步骤2</h3>
+
+        <input type="text" name='weixin' placeholder="微信">
+        <input type="text" name='weibo' placeholder="微博">
+        <input type="text" name='qq' placeholder="QQ">
+
+        <input type="button" class="btn prev" value="上一步">
+        <input type="button" class="btn next" value="下一步">
+      </div>
+      <!-- * 步骤2小卡片结束 -->
+
+      <!-- * 步骤3小卡片开始 -->
+      <div class="step">
+        <h2 class="title">认证信息</h2>
+        <h3 class="subtitle">步骤3</h3>
+
+        <input type="text" name='uname' placeholder="姓名">
+        <input type="text" name='phone' placeholder="手机号">
+        <textarea type="text" name='address' placeholder="详细地址"></textarea>
+
+        <input type="button" class="btn prev" value="上一步">
+        <input type="submit" class="btn submit" value="提交">
+      </div>
+      <!-- * 步骤3小卡片结束 -->
+    </form>
+    <!-- * 小卡片表单结束 -->
+
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

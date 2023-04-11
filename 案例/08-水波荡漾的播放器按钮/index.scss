@@ -1,0 +1,106 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-16 21:36:26 
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-16 21:36:26
+  */
+:root {
+  --primary: #6d5dfc;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // outline: 1px dashed maroon;
+}
+
+$shadow: 
+  .3rem .3rem .6rem var(--greyLight-2), 
+  -.2rem -.2rem .5rem var(--white);
+$inner-shadow: 
+  inset .2rem .2rem .5rem var(--greyLight-2), 
+  inset -.2rem -.2rem .5rem var(--white);
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-1);
+}
+.circle {
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  &__btn {
+    width: 6rem;
+    height: 6rem;
+    background: var(--greyLight-1);
+    box-shadow: $shadow;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    color: var(--primary);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &.shadow {
+      box-shadow: $inner-shadow;
+    }
+    .fa-play {
+      position: absolute;
+      opacity: 0;
+      &.visibility {
+        opacity: 1;
+      }
+      transition: all .2s linear;
+    }
+    
+    .fa-pause {
+      position: absolute;
+      opacity: 1;
+      &.visibility {
+        opacity: 0;
+      }
+      transition: all .2s linear;
+    }
+  }
+
+  &__wave1, &__wave2 {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    border-radius: 50%;
+    &.paused {
+      animation-play-state: paused;
+    }
+  }
+
+  &__wave1 {
+    box-shadow: .4rem .4rem .8rem var(--greyLight-2), 
+    -.4rem -.4rem .8rem var(--white);
+    background: linear-gradient(to bottom right, var(--greyLight-2) 0%, var(--white) 100%);
+    animation: waves 4s linear infinite;
+  }
+  &__wave2 {
+    box-shadow: .4rem .4rem .8rem var(--greyLight-2), 
+    -.4rem -.4rem .8rem var(--white);
+    animation: waves 4s linear 2s infinite;
+  }
+  @keyframes waves {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}

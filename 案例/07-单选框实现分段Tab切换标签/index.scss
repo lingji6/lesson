@@ -1,0 +1,73 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-14 19:56:26 
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-14 19:56:26 
+  */
+:root {
+  --primary: #6d5dfc;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyDark: #9baacf;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // outline: 1px dashed purple;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-1);
+}
+.segmented-control {
+  width: 20.4rem;
+  height: 4rem;
+  box-shadow: .3rem .3rem .6rem var(--greyLight-2), 
+  -.2rem -.2rem .5rem var(--white);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  input {
+    display: none;
+  }
+  position: relative;
+  &__color {
+    position: absolute;
+    height: 3.4rem;
+    width: 6.2rem;
+    margin-left: .3rem;
+    border-radius: .8rem;
+    box-shadow: inset .2rem .2rem .5rem var(--greyLight-2), 
+    inset -.2rem -.2rem .5rem var(--white);
+  }
+  #tab-1:checked ~ &__color {
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #tab-2:checked ~ &__color {
+    transform: translateX(6.8rem);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #tab-3:checked ~ &__color {
+    transform: translateX(13.6rem);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  &__1, &__2, &__3 {
+    width: 6.8rem;
+    height: 3.6rem;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--greyDark);
+    &:hover { 
+      color: var(--primary);
+    }
+  }
+}

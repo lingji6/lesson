@@ -1,0 +1,111 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-07-12 16:09:09
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-07-12 16:09:09
+  */
+:root {
+  --mainColor: #e3ebf6;
+  --mainColor1: #edf0f3;
+  --mainColor2: #f3f0f3;
+  --white: #FFFFFF99;
+  --greyDark: #9baacf;
+  --greyDark2: #ccd1dd;
+  --greyDark3: #c9d1e6;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  height: 100vh;
+  background-color: var(--mainColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 30rem;
+    height: 16rem;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    box-shadow: 
+      0.1rem 0.1rem 0.2rem var(--greyDark), 
+      0.2rem 0.2rem 0.2rem var(--greyDark2), 
+      0.3rem 0.3rem 0.2rem var(--greyDark3),
+      -0.1rem -0.1rem 0.1rem var(--mainColor1),
+      -0.2rem -0.2rem 0.1rem var(--mainColor2),
+      -0.3rem -0.3rem 0.6rem var(--white);
+    display: flex;
+  }
+  .loudspeaker {
+    flex: 5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 喇叭外侧开始 */
+    .outer {
+      width: 13rem;
+      height: 13rem;
+      box-shadow: 
+        0.1rem 0.1rem 0.2rem var(--greyDark), 
+        0.2rem 0.2rem 0.2rem var(--greyDark2), 
+        0.3rem 0.3rem 0.2rem var(--greyDark3),
+        -0.3rem -0.3rem 0.6rem var(--white);
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* 小圆点 */
+      .inner {
+        border-radius: 50%;
+        width: 11rem;
+        height: 11rem;
+        background-image: radial-gradient(#848793 20%, transparent 40%);
+        background-size: 0.5625rem 0.5625rem;
+        transform: rotate(45deg);
+
+        /* 内侧阴影 */
+        &::before {
+          content: '';
+          display: block;
+          border-radius: 50%;
+          width: 11.125rem;
+          height: 11.125rem;
+          box-shadow: 
+            inset 0.625rem 0.625rem 1.25rem #00000026,
+            inset 0.25rem 0.25rem 0.125rem #ffffff99;
+        }
+      }
+      /* 喇叭外侧结束 */
+    }
+  }
+  .controls {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .minus,
+    .plus,
+    .microphone,
+    .power {
+      // outline: 1px dashed wheat;
+      // background-color: purple;
+      width: 6.5rem;
+      text-align: center;
+      .fas {
+        font-size: 2.925rem;
+        color: var(--mainColor);
+        text-shadow: 
+          0.1rem 0.1rem 0.1rem var(--greyDark), 
+          0.2rem 0.2rem 0.1rem var(--greyDark2), 
+          0.3rem 0.3rem 0.1rem var(--greyDark3), 
+          -0.1rem -0.1rem 0.1rem var(--white);
+      }
+    }
+  }
+}

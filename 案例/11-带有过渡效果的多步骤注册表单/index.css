@@ -1,0 +1,145 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-07-08 19:06:06
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-07-08 19:06:06
+  */
+@charset "UTF-8";
+:root {
+  /* 背景色起始颜色 */
+  --startColor: #e96f1eb9;
+  /* 背景色结束颜色 */
+  --endColor: #9b59b699;
+  /* 步骤小卡片元素阴影颜色 */
+  --stepShadow: #00000066;
+  /* 输入框边框颜色 */
+  --inputBdColor: #ccc;
+  /* 主色调 */
+  --mainColor: #277cae;
+  /* h2颜色 */
+  --h2Color: #2C3E50;
+  /* h3颜色 */
+  --h3Color: #666;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(var(--startColor), var(--endColor)) no-repeat;
+  height: 100vh;
+  /* 主区域开始 */
+  /* 主区域结束 */
+}
+body .main {
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  display: none;
+  /* 步骤进度条开始 */
+  /* 步骤进度条结束 */
+  /* 小卡片表单开始 */
+  /* 小卡片表单结束 */
+}
+body .main ul.bar {
+  /* 将ul设置为BFC容器 */
+  overflow: hidden;
+  /* 步骤分区开始 */
+  /* 步骤分区结束 */
+}
+body .main ul.bar li {
+  float: left;
+  width: 33.33%;
+  position: relative;
+  /* 步骤之间长条开始 */
+  /* 第一个长条需要隐藏 */
+  /* 步骤之间长条结束 */
+  /* 步骤数字开始 */
+  /* 步骤数字结束 */
+  /* 步骤名称开始 */
+  /* 步骤名称结束 */
+}
+body .main ul.bar li::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1;
+}
+body .main ul.bar li.active::after {
+  background: var(--mainColor);
+}
+body .main ul.bar li:nth-child(1)::after {
+  display: none;
+}
+body .main ul.bar li span {
+  font-size: 12px;
+}
+body .main ul.bar li span.num {
+  display: block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background: #fff;
+  margin: 0 auto 5px;
+  border-radius: 3px;
+  color: var(--mainColor);
+}
+body .main ul.bar li.active span.num {
+  background: var(--mainColor);
+  color: #fff;
+}
+body .main ul.bar li span.txt {
+  color: #fff;
+}
+body .main .steps {
+  width: 320px;
+  margin: 30px auto;
+  position: relative;
+  /* 步骤小卡片开始 */
+  /* 步骤小卡片结束 */
+}
+body .main .steps .step {
+  background-color: #fff;
+  margin-bottom: 50px;
+  box-shadow: 1px 1px 15px 1px var(--stepShadow);
+  padding: 20px 30px;
+  position: absolute;
+  width: 100%;
+  transition: 0.5s;
+}
+body .main .steps .step h2.title {
+  font-size: 15px;
+  color: var(--h2Color);
+  margin-bottom: 10px;
+}
+body .main .steps .step h3.subtitle {
+  font-size: 13px;
+  color: var(--h3Color);
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+body .main .steps .step input,
+body .main .steps .step textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid var(--inputBdColor);
+}
+body .main .steps .step input.btn {
+  width: 100px;
+  background-color: var(--mainColor);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

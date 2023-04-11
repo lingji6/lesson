@@ -1,0 +1,84 @@
+/*
+  * @Author: wzh 
+  * @Date: 2021-06-06 19:16:36
+  * @Last Modified by: 1521620993@qq.com
+  * @Last Modified time: 2021-06-06 19:16:36
+  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+}
+.showcase {
+  width: 520px;
+  height: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -140px;
+  margin-left: -260px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.showcase:hover .iconfont {
+  display: block;
+}
+ul.slides {
+  outline: 3px dashed red;
+  /* 处理空白折叠：所有文字类元素(display:inline) */
+  font-size: 0;
+  position: absolute;
+  z-index: -1;
+}
+ul.slides li.slide {
+  display: inline-block;
+}
+.iconfont {
+  position: absolute;
+  font-size: 16px;
+  color: #fff;
+  width: 20px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, .3);
+  top: 50%;
+  margin-top: -15px;
+  cursor: pointer;
+  line-height: 30px;
+  display: none;
+}
+.iconfont.prev {
+  left: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.iconfont.next {
+  right: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+ul.spots {
+  background-color: rgba(255, 255, 255, .3);
+  position: absolute;
+  border-radius: 10px;
+  bottom: 15px;
+  font-size: 0;
+  left: 50%;
+  margin-left: -35px;
+}
+ul.spots li.spot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+  display: inline-block;
+  margin: 3px;
+}
+ul.spots li.spot.active {
+  background-color: red;
+}

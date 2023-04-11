@@ -1,0 +1,179 @@
+/*
+ * @Author: wzh 
+ * @Date: 2021-06-08 11:15:06 
+ * @Last Modified by: 1521620993@qq.com
+ * @Last Modified time: 2021-06-08 13:15:59
+ */
+:root {
+  --primary-light: #39ddfa;
+  --primary: #00abdf;
+  --primary-dark: #008ada;
+  --white: #FFFFFF;
+  --greyLight-1: #ebf5fc;
+  --greyLight-2: #d5e0f3;
+  --greyLight-3: #c1d9f0;
+  --greyDark: #646b8c;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-2);
+}
+
+.card {
+  width: 34rem;
+  border-radius: 2rem;
+  background: var(--greyLight-1);
+  box-shadow: 0px 20px 30px rgba(100, 131, 177, 0.2);
+  padding: 5rem;
+  border: 1px solid white;
+}
+.card__percent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card__percent svg {
+  width: 24rem;
+  height: 24rem;
+  z-index: 1;
+  transform: rotate(-90deg);
+}
+.card__percent svg circle {
+  fill: none;
+  stroke-linecap: round;
+  transform: translate(3rem, 3rem);
+  stroke-dasharray: 565.2;
+  stroke-dashoffset: 282.6;
+  transition: all 1s ease;
+  stroke-width: 24;
+}
+.card__percent .circle {
+  position: absolute;
+  width: 23rem;
+  height: 23rem;
+  border-radius: 50%;
+  box-shadow: 6px 6px 8px var(--greyLight-2), -6px -6px 8px var(--white);
+  background: var(--greyLight-1);
+}
+.card__percent .circle__medium {
+  width: 20.5rem;
+  height: 20.5rem;
+  box-shadow: inset 8px 8px 10px var(--greyLight-2), inset -4px -4px 8px var(--white);
+}
+.card__percent .circle__small {
+  width: 15.5rem;
+  height: 15.5rem;
+  box-shadow: 6px 6px 8px var(--greyLight-2), -2px -2px 8px var(--white);
+}
+.card__number {
+  position: absolute;
+  color: var(--greyDark);
+  font-size: 3.6rem;
+}
+
+.form {
+  padding: 4rem;
+  margin-left: 4rem;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border-radius: 2rem;
+  background: var(--greyLight-1);
+  text-align: center;
+  box-shadow: 0px 20px 30px rgba(100, 131, 177, 0.2);
+  border: 1px solid var(--white);
+  position: relative;
+}
+.form input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 5rem;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--primary);
+  box-shadow: inset 0.2rem 0.2rem 0.4rem var(--greyLight-2), inset -0.3rem -0.3rem 0.4rem var(--white);
+}
+.form input::placeholder {
+  color: var(--greyLight-3);
+}
+.form input:focus {
+  color: var(--primary);
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-3), -0.2rem -0.2rem 0.5rem var(--white);
+}
+.form__btn {
+  border: none;
+  outline: none;
+  letter-spacing: 0.8px;
+  background: var(--greyLight-1);
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  color: var(--white);
+  cursor: pointer;
+  background: linear-gradient(-25deg, var(--primary) 0%, var(--primary-light) 100%);
+  margin-left: 1rem;
+}
+.form__btn:hover {
+  background: linear-gradient(-25deg, var(--primary-dark) 0%, var(--primary) 100%);
+}
+
+.tooltip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: -5.2rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background: var(--greyLight-1);
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+.tooltip__text {
+  margin-left: 0.6rem;
+}
+.tooltip.fade-in {
+  animation: fadeIn 0.8s ease;
+}
+.tooltip::after {
+  content: "";
+  position: absolute;
+  left: 52%;
+  bottom: 72%;
+  width: 2rem;
+  height: 2rem;
+  background: var(--greyLight-1);
+  clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+  transform: rotate(135deg);
+  border-radius: 0 0 0 0.4em;
+}
+
+@keyframes fadeIn {
+  100% {
+    transform: translateY(-40px) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
